@@ -1,0 +1,27 @@
+# The URLS that we note will be dynamic
+[*] Performing host and subdomain brute force against bright-shrew.sec588.cloud
+[*] 	 CNAME www.bright-shrew.sec588.cloud www.bright-shrew.sec588.cloud.s3-website-us-east-1.amazonaws.com               # This is s3 and dynamic
+[*] 	 CNAME www.bright-shrew.sec588.cloud.s3-website-us-east-1.amazonaws.com s3-website-us-east-1.amazonaws.com        # This is s3 and dynamic
+[*] 	 A s3-website-us-east-1.amazonaws.com 52.216.77.11                                                              # This is s3 and dynamic
+[*] 	 CNAME blog.bright-shrew.sec588.cloud a0326e3d250e747aa98c9b6e9d35b8f8-1878679826.us-east-1.elb.amazonaws.com     # This is s3 and dynamic
+[*] 	 A a0326e3d250e747aa98c9b6e9d35b8f8-1878679826.us-east-1.elb.amazonaws.com 3.213.190.121                        # This IP will change from class to class
+[*] 	 A a0326e3d250e747aa98c9b6e9d35b8f8-1878679826.us-east-1.elb.amazonaws.com 52.21.205.146                        # This IP will change from class to class
+[*] 	 CNAME wiki.bright-shrew.sec588.cloud wiki.bright-shrew.sec588.cloud.s3-website-us-east-1.amazonaws.com             # This is s3 and dynamic
+[*] 	 CNAME wiki.bright-shrew.sec588.cloud.s3-website-us-east-1.amazonaws.com s3-website-us-east-1.amazonaws.com       # This is s3 and dynamic    
+[*] 	 A s3-website-us-east-1.amazonaws.com 52.216.143.27                                                             # This is s3 and dynamic
+[*] 	 A dev.bright-shrew.sec588.cloud 18.234.56.195                                                                    # This IP will change from class to class
+[*] 	 CNAME Www.bright-shrew.sec588.cloud www.bright-shrew.sec588.cloud.s3-website-us-east-1.amazonaws.com               # This is s3 and dynamic
+[*] 	 CNAME www.bright-shrew.sec588.cloud.s3-website-us-east-1.amazonaws.com s3-website-us-east-1.amazonaws.com        # This is s3 and dynamic 
+[*] 	 A s3-website-us-east-1.amazonaws.com 52.216.137.99                                                             # This is s3 and dynamic 
+[*] 	 CNAME WWW.bright-shrew.sec588.cloud www.bright-shrew.sec588.cloud.s3-website-us-east-1.amazonaws.com               # This is s3 and dynamic    
+[*] 	 CNAME www.bright-shrew.sec588.cloud.s3-website-us-east-1.amazonaws.com s3-website-us-east-1.amazonaws.com        # This is s3 and dynamic      
+[*] 	 A s3-website-us-east-1.amazonaws.com 52.216.112.98                                                             # This is s3 and dynamic 
+[*] 	 CNAME railsapi.bright-shrew.sec588.cloud a0326e3d250e747aa98c9b6e9d35b8f8-1878679826.us-east-1.elb.amazonaws.com # This IP will change from class to class
+[*] 	 A a0326e3d250e747aa98c9b6e9d35b8f8-1878679826.us-east-1.elb.amazonaws.com 3.213.190.121                        # This IP will change from class to class 
+[*] 	 A a0326e3d250e747aa98c9b6e9d35b8f8-1878679826.us-east-1.elb.amazonaws.com 52.21.205.146                        # This IP will change from class to class   
+[+] 19 Records Found
+[*] Performing Crt.sh Search Enumeration against bright-shrew.sec588.cloud
+[*] 	 *.bright-shrew.sec588.cloud wildcard
+[*] 	 *.bright-shrew.sec588.cloud wildcard
+[+] 0 Records Found
+[*] Saving records to CSV file: /home/sec588/files/workdir/dnsrecon.csv

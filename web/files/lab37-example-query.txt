@@ -1,0 +1,1 @@
+https://graph.microsoft.com/v1.0/users/{{UserId}}/messages/AAMkADgyNTEzM2Q5LWYwNmEtNGQ0MS05MDVmLTllYTM2MGYxZGYyMABGAAAAAADPzzHsWhgfRJBKJou7m9EwBwAgX1ypk-b1TK6T0A17wTSGAAAAAAEMAAAgX1ypk-b1TK6T0A17wTSGAAAb8MnJAAA=/attachments

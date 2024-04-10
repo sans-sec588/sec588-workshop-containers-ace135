@@ -1,0 +1,80 @@
+/* SANS Electronic Workbook styles: pdf.css
+    Version: 2.0.11
+
+    Do not make changes to this file - they will be overwritten.  Customizations
+    may be applied in the custom.css file, but core requirements such as font
+    face and size, colors, and other styles may be removed.
+
+    In general, if you're not sure whether a customization will "stick", contact
+    SROC for assistance.
+    */
+
+@media print {
+    html {
+        font-size: 10pt;
+        font-family: var(--md-text-font);
+    }
+
+    code,
+    .highlighttable .linenos,
+    .highlighttable code {
+        font-family: var(--md-code-font);
+        font-size: 0.9rem;
+    }
+
+    .md-typeset table:not([class]) td,
+    .md-typeset table:not([class]) th {
+        padding: 0.25em;
+        font-size: 0.9rem;
+    }
+
+    /* Hide admonition icons from PDFs since they print as dark color squares. */
+    .md-typeset details > abstract::before,  /* this is for expanded admonitions - e.g. !!! */
+    .md-typeset .admonition-title::before,  /* this (icon) and the next (drop-down arrow) are for collapsed admonitions - e.g. ??? */
+    .md-typeset details > abstract::after {
+        display:none;
+    }
+    .md-typeset .admonition-title,abstract { /* this removes the indent left from the hidden icons */
+        padding-left: 1rem !important;
+    }
+
+    .md-typeset,
+    .md-typeset code :not(h1,h2,h3,h4,h5),
+    .md-typeset abstract,
+    .md-typeset .admonition,
+    .md-typeset details,
+    .md-typeset .footnote,
+    .md-typeset :is(.admonition, details) {
+        font-size: 0.9rem;
+    }
+
+    .highlighttable {
+        width: 100%;
+    }
+
+    .md-container,
+    .md-main__inner,
+    .md-grid {
+        padding-top: 0rem;
+        margin-top: 0rem;
+    }
+
+    .md-content__inner {
+        padding-top: 0rem;
+    }
+    .md-content__inner::before {
+        height: 0rem;
+    }
+
+    .md-typeset h1 {
+        padding-top: 0rem;
+    }
+
+    @page {
+        size: letter portrait;
+        margin: 1in 0.5in 1in 0.5in;
+        counter-increment: page;
+        white-space: pre;
+        color: black;
+    }
+}

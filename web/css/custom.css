@@ -1,0 +1,19 @@
+/* SANS Electronic Workbook styles: custom.css
+
+    Style customizations can be made in this file and will override those
+    declared in html.css and pdf.css.
+    WARNING: Do not override font face and size, colors, or other core design
+    elements. Any such modifications may be ignored during the downstream HTML
+    and PDF production process.
+
+    In general, if you're not sure whether a customization will "stick", contact
+    SROC for assistance.
+   */
+
+:root {
+    /* Offensive Operations */
+    --sans-primary-color: #922723;
+    --sans-secondary-color: #5c0100;
+    --sans-primary-text-color: #ffffff;
+    --sans-secondary-text-color: #eeeeee;
+}

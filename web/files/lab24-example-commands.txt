@@ -1,0 +1,29 @@
+#
+# The following commands are ***EXAMPLES***. 
+# Do not copy and paste these command, instead use it for reference.
+#
+
+# Below will be given to you by you teacher or throughout the labs!
+
+export CLASS_SUBDOMAIN="simple-mammal"
+export STUDENT_NUM="student1024"
+
+# To get this below run the following command:
+# aws ec2 describe-instances --profile lab31 | jq '.Reservations[].Instances[] | "\(.InstanceId) \(.PublicIpAddress) \(.NetworkInterfaces[].Groups[].GroupId) \(.SubnetId) \(.IamInstanceProfile.Arn)"' | grep ec2-kms-instance-profile-$CLASS_SUBDOMAIN
+
+export SECURITY_GROUP="sg-0b585d6ba9289cdbe"
+export SUBNET_ID="subnet-04b5b2f95645dfb5a"
+
+# You may now run the items below!
+
+aws ec2 create-key-pair --profile lab31 --key-name $STUDENT_NUM-$CLASS_SUBDOMAIN --query 'KeyMaterial' --output text > /home/sec588/files/workdir/$STUDENT_NUM-$CLASS_SUBDOMAIN
+
+aws ec2 run-instances --profile lab31 --image-id ami-00a208c7cdba991ea --iam-instance-profile Arn=arn:aws:iam::310090471142:instance-profile/ec2-kms-instance-profile-$CLASS_SUBDOMAIN --key-name $STUDENT_NUM-$CLASS_SUBDOMAIN --subnet-id $SUBNET_ID --security-group-ids $SECURITY_GROUP --output table
+
+chmod 400 $STUDENT_NUM-$CLASS_SUBDOMAIN.pem
+
+# How to troubleshoot?
+# Run the following:
+
+export CMD="aws ec2 run-instances --profile lab31 --image-id ami-00a208c7cdba991ea --iam-instance-profile Arn=arn:aws:iam::310090471142:instance-profile/ec2-kms-instance-profile-$CLASS_SUBDOMAIN --key-name $STUDENT_NUM-$CLASS_SUBDOMAIN --subnet-id $SUBNET_ID --security-group-ids $SECURITY_GROUP --output table"
+echo $CMD

@@ -1,0 +1,15 @@
+#cloud-config
+
+fqdn: ingest-box
+package_update: true
+package_upgrade: true
+package_reboot_if_required: true
+
+runcmd:
+  - hostnamectl ingest-box
+
+power_state:
+  mode: reboot
+  delay: 1
+  message: Rebooting after installation
+

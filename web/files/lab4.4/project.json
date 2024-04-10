@@ -1,0 +1,10 @@
+{
+  "name": "lambda-shell-$STUDENT",
+  "description": "",
+  "memory": 128,
+  "timeout": 300,
+  "runtime": "nodejs10.x"
+  "role": "arn:aws:iam::112233445566:role/lab4.4-student-X",
+  "environment": {}
+}
+

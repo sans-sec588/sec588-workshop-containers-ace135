@@ -1,0 +1,3 @@
+/* insert any custom javascript here.
+   this will supersede any other javascript declarations.
+   */

@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  web:
+    image: nginx:1.25.4
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web:/usr/share/nginx/html    

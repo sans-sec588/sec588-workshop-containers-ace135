@@ -1,0 +1,1530 @@
+#
+# YOUR RESULTS MAY BE DIFFERENT 
+#
+
+sec588@slingshot:~/files/workdir$ cat scan2.nmap 
+# Nmap 7.60 scan initiated Tue Jun 16 23:24:39 2020 as: nmap -iL /home/sec588/files/workdir/ips.txt -p 80,22,6379,27017 -oA /home/sec588/files/workdir/scan2 -O -sV --traceroute --script=redis*,mongo*
+Nmap scan report for ec2-107-23-165-154.compute-1.amazonaws.com (107.23.165.154)
+Host is up (0.039s latency).
+
+PORT      STATE    SERVICE VERSION
+22/tcp    filtered ssh
+80/tcp    open     http
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.0 200 OK
+|     X-Frame-Options: SAMEORIGIN
+|     X-XSS-Protection: 1; mode=block
+|     X-Content-Type-Options: nosniff
+|     Content-Type: text/html; charset=utf-8
+|     ETag: W/"74df0e9d95043913257c27cc8ece3eac"
+|     Cache-Control: max-age=0, private, must-revalidate
+|     Set-Cookie: _demo_blog_session=R2pVdkVIUHFBWFlYWVBFVlZxcDlERDNvMVNqTllGbmhEVnZDdnFMcW4rQkpzVGJ2ckVRc0RQM2FvUk40RmcxVjJrcUEwUS81c1VyQkhYTXJLVVlEano2WEcya2hxOVUvcEdCNXRxT0NxUjcya0dzSWVQd2loV0tYNk9DbnlQaUQyeHhlQk84V1E4dC9kcDVUVHllWDZ3PT0tLUVVK3JBRnY5ZHV3dHd5UEplOEdZZlE9PQ%3D%3D--60b83faaa8869e332589d1e56aa28f67671fa81c; path=/; HttpOnly
+|     X-Request-Id: 4c018ced-6cd9-46f6-af14-ca915a671dc8
+|     X-Runtime: 0.010390
+|     <!DOCTYPE html>
+|     <html>
+|     <head>
+|     <title>DemoBlog</title>
+|     <meta name="csrf-param" content="authenticity_token" />
+|     <meta name="csrf-token" content="fUYlLlQhsr+6qtv9EcKLI46ki/YPmRLXib4f0t6g2lYVKpApakZ3lcWWGheEsbXM8MqbpwUevR/u2zPSjWx8xA=
+|   HTTPOptions: 
+|     HTTP/1.0 404 Not Found
+|     Content-Type: text/html; charset=UTF-8
+|     X-Request-Id: acb97d68-b94e-45a3-8351-7d108b6ac035
+|     X-Runtime: 0.002000
+|     Content-Length: 1722
+|     <!DOCTYPE html>
+|     <html>
+|     <head>
+|     <title>The page you were looking for doesn't exist (404)</title>
+|     <meta name="viewport" content="width=device-width,initial-scale=1">
+|     <style>
+|     .rails-default-error-page {
+|     background-color: #EFEFEF;
+|     color: #2E2F30;
+|     text-align: center;
+|     font-family: arial, sans-serif;
+|     margin: 0;
+|     .rails-default-error-page div.dialog {
+|     width: 95%;
+|     max-width: 33em;
+|     margin: 4em auto 0;
+|     .rails-default-error-page div.dialog > div {
+|     border: 1px solid #CCC;
+|     border-right-color: #999;
+|     border-left-color: #999;
+|     border-bottom-color: #BBB;
+|     border-top: #B00100 solid 4px;
+|     border-top-left-radius: 9px;
+|     border-top-right-radius: 9px;
+|_    background-color: white
+6379/tcp  filtered redis
+27017/tcp filtered mongod
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port80-TCP:V=7.60%I=7%D=6/16%Time=5EE954C0%P=x86_64-pc-linux-gnu%r(GetR
+SF:equest,EBA,"HTTP/1\.0\x20200\x20OK\r\nX-Frame-Options:\x20SAMEORIGIN\r\
+SF:nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20no
+SF:sniff\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nETag:\x20W/\"7
+SF:4df0e9d95043913257c27cc8ece3eac\"\r\nCache-Control:\x20max-age=0,\x20pr
+SF:ivate,\x20must-revalidate\r\nSet-Cookie:\x20_demo_blog_session=R2pVdkVI
+SF:UHFBWFlYWVBFVlZxcDlERDNvMVNqTllGbmhEVnZDdnFMcW4rQkpzVGJ2ckVRc0RQM2FvUk4
+SF:0RmcxVjJrcUEwUS81c1VyQkhYTXJLVVlEano2WEcya2hxOVUvcEdCNXRxT0NxUjcya0dzSW
+SF:VQd2loV0tYNk9DbnlQaUQyeHhlQk84V1E4dC9kcDVUVHllWDZ3PT0tLUVVK3JBRnY5ZHV3d
+SF:Hd5UEplOEdZZlE9PQ%3D%3D--60b83faaa8869e332589d1e56aa28f67671fa81c;\x20p
+SF:ath=/;\x20HttpOnly\r\nX-Request-Id:\x204c018ced-6cd9-46f6-af14-ca915a67
+SF:1dc8\r\nX-Runtime:\x200\.010390\r\n\r\n<!DOCTYPE\x20html>\n<html>\n\x20
+SF:\x20<head>\n\x20\x20\x20\x20<title>DemoBlog</title>\n\x20\x20\x20\x20<m
+SF:eta\x20name=\"csrf-param\"\x20content=\"authenticity_token\"\x20/>\n<me
+SF:ta\x20name=\"csrf-token\"\x20content=\"fUYlLlQhsr\+6qtv9EcKLI46ki/YPmRL
+SF:Xib4f0t6g2lYVKpApakZ3lcWWGheEsbXM8MqbpwUevR/u2zPSjWx8xA=")%r(HTTPOption
+SF:s,75B,"HTTP/1\.0\x20404\x20Not\x20Found\r\nContent-Type:\x20text/html;\
+SF:x20charset=UTF-8\r\nX-Request-Id:\x20acb97d68-b94e-45a3-8351-7d108b6ac0
+SF:35\r\nX-Runtime:\x200\.002000\r\nContent-Length:\x201722\r\n\r\n<!DOCTY
+SF:PE\x20html>\n<html>\n<head>\n\x20\x20<title>The\x20page\x20you\x20were\
+SF:x20looking\x20for\x20doesn't\x20exist\x20\(404\)</title>\n\x20\x20<meta
+SF:\x20name=\"viewport\"\x20content=\"width=device-width,initial-scale=1\"
+SF:>\n\x20\x20<style>\n\x20\x20\.rails-default-error-page\x20{\n\x20\x20\x
+SF:20\x20background-color:\x20#EFEFEF;\n\x20\x20\x20\x20color:\x20#2E2F30;
+SF:\n\x20\x20\x20\x20text-align:\x20center;\n\x20\x20\x20\x20font-family:\
+SF:x20arial,\x20sans-serif;\n\x20\x20\x20\x20margin:\x200;\n\x20\x20}\n\n\
+SF:x20\x20\.rails-default-error-page\x20div\.dialog\x20{\n\x20\x20\x20\x20
+SF:width:\x2095%;\n\x20\x20\x20\x20max-width:\x2033em;\n\x20\x20\x20\x20ma
+SF:rgin:\x204em\x20auto\x200;\n\x20\x20}\n\n\x20\x20\.rails-default-error-
+SF:page\x20div\.dialog\x20>\x20div\x20{\n\x20\x20\x20\x20border:\x201px\x2
+SF:0solid\x20#CCC;\n\x20\x20\x20\x20border-right-color:\x20#999;\n\x20\x20
+SF:\x20\x20border-left-color:\x20#999;\n\x20\x20\x20\x20border-bottom-colo
+SF:r:\x20#BBB;\n\x20\x20\x20\x20border-top:\x20#B00100\x20solid\x204px;\n\
+SF:x20\x20\x20\x20border-top-left-radius:\x209px;\n\x20\x20\x20\x20border-
+SF:top-right-radius:\x209px;\n\x20\x20\x20\x20background-color:\x20white");
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|PBX
+Running (JUST GUESSING): Linux 2.6.X|3.X|4.X (90%), Vodavi embedded (87%)
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32 cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4 cpe:/h:vodavi:xts-ip
+Aggressive OS guesses: Linux 2.6.32 (90%), Linux 3.2 - 4.8 (90%), Linux 2.6.32 - 3.10 (89%), Linux 2.6.32 - 3.13 (89%), Vodavi XTS-IP PBX (87%)
+No exact OS matches for host (test conditions non-ideal).
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT      ADDRESS
+1   0.42 ms  _gateway (192.168.4.1)
+2   10.82 ms 96.120.36.225
+3   28.18 ms 96.110.15.145
+4   20.32 ms 96.110.5.38
+5   17.25 ms 69.139.181.161
+6   20.93 ms be-40-ar01.northdade.fl.pompano.comcast.net (68.86.165.161)
+7   20.39 ms be-20214-cr02.miami.fl.ibone.comcast.net (68.86.90.205)
+8   23.73 ms be-12274-pe01.nota.fl.ibone.comcast.net (68.86.82.154)
+9   18.16 ms 50.248.119.150
+10  ... 30
+
+Nmap scan report for ec2-34-194-136-94.compute-1.amazonaws.com (34.194.136.94)
+Host is up (0.042s latency).
+
+PORT      STATE    SERVICE VERSION
+22/tcp    filtered ssh
+80/tcp    open     http
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.0 200 OK
+|     X-Frame-Options: SAMEORIGIN
+|     X-XSS-Protection: 1; mode=block
+|     X-Content-Type-Options: nosniff
+|     Content-Type: text/html; charset=utf-8
+|     ETag: W/"631468c7aef8395991e5b9662d19a137"
+|     Cache-Control: max-age=0, private, must-revalidate
+|     Set-Cookie: _demo_blog_session=bEFPeXdsVDlVWUVXckg2WmNKZmlWREJTUFJyajdrZnRCWHc4ZjdKS05DQmVMakJ4czczZVNWeC9HT2RRR05VM1owcnFSZHNhM3V2RXB2ZUtRTjNkSG1KN1JGWEJkUzl6SzVuZk5sdktSb2RMS2RBS21ROVR2UHRSc2YxTUpGdlpzVWlwR0ZnU2pSc0tFV3ZUUWRkM2FRPT0tLTgxOVgycHJLd09sNkszUGx1eUVGM1E9PQ%3D%3D--e1e7eed042e0fa0869383c0cac4e52ad5f8e8502; path=/; HttpOnly
+|     X-Request-Id: 2924f61f-f890-4080-9c34-1ca0f4524455
+|     X-Runtime: 0.011006
+|     <!DOCTYPE html>
+|     <html>
+|     <head>
+|     <title>DemoBlog</title>
+|     <meta name="csrf-param" content="authenticity_token" />
+|     <meta name="csrf-token" content="e429KmmL4jDpG6uIb4c8G54cgtfJTYvqKO+XWFViavBIZ258mKbRze4e8dTZIVOGAAbnnPK/Cr1sqaTA3q5OjA=
+|   HTTPOptions: 
+|     HTTP/1.0 404 Not Found
+|     Content-Type: text/html; charset=UTF-8
+|     X-Request-Id: 4d287db2-56c5-4ab8-8bdb-27db35be12e8
+|     X-Runtime: 0.002178
+|     Content-Length: 1722
+|     <!DOCTYPE html>
+|     <html>
+|     <head>
+|     <title>The page you were looking for doesn't exist (404)</title>
+|     <meta name="viewport" content="width=device-width,initial-scale=1">
+|     <style>
+|     .rails-default-error-page {
+|     background-color: #EFEFEF;
+|     color: #2E2F30;
+|     text-align: center;
+|     font-family: arial, sans-serif;
+|     margin: 0;
+|     .rails-default-error-page div.dialog {
+|     width: 95%;
+|     max-width: 33em;
+|     margin: 4em auto 0;
+|     .rails-default-error-page div.dialog > div {
+|     border: 1px solid #CCC;
+|     border-right-color: #999;
+|     border-left-color: #999;
+|     border-bottom-color: #BBB;
+|     border-top: #B00100 solid 4px;
+|     border-top-left-radius: 9px;
+|     border-top-right-radius: 9px;
+|_    background-color: white
+6379/tcp  filtered redis
+27017/tcp filtered mongod
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port80-TCP:V=7.60%I=7%D=6/16%Time=5EE954C0%P=x86_64-pc-linux-gnu%r(GetR
+SF:equest,EBA,"HTTP/1\.0\x20200\x20OK\r\nX-Frame-Options:\x20SAMEORIGIN\r\
+SF:nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20no
+SF:sniff\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nETag:\x20W/\"6
+SF:31468c7aef8395991e5b9662d19a137\"\r\nCache-Control:\x20max-age=0,\x20pr
+SF:ivate,\x20must-revalidate\r\nSet-Cookie:\x20_demo_blog_session=bEFPeXds
+SF:VDlVWUVXckg2WmNKZmlWREJTUFJyajdrZnRCWHc4ZjdKS05DQmVMakJ4czczZVNWeC9HT2R
+SF:RR05VM1owcnFSZHNhM3V2RXB2ZUtRTjNkSG1KN1JGWEJkUzl6SzVuZk5sdktSb2RMS2RBS2
+SF:1ROVR2UHRSc2YxTUpGdlpzVWlwR0ZnU2pSc0tFV3ZUUWRkM2FRPT0tLTgxOVgycHJLd09sN
+SF:kszUGx1eUVGM1E9PQ%3D%3D--e1e7eed042e0fa0869383c0cac4e52ad5f8e8502;\x20p
+SF:ath=/;\x20HttpOnly\r\nX-Request-Id:\x202924f61f-f890-4080-9c34-1ca0f452
+SF:4455\r\nX-Runtime:\x200\.011006\r\n\r\n<!DOCTYPE\x20html>\n<html>\n\x20
+SF:\x20<head>\n\x20\x20\x20\x20<title>DemoBlog</title>\n\x20\x20\x20\x20<m
+SF:eta\x20name=\"csrf-param\"\x20content=\"authenticity_token\"\x20/>\n<me
+SF:ta\x20name=\"csrf-token\"\x20content=\"e429KmmL4jDpG6uIb4c8G54cgtfJTYvq
+SF:KO\+XWFViavBIZ258mKbRze4e8dTZIVOGAAbnnPK/Cr1sqaTA3q5OjA=")%r(HTTPOption
+SF:s,75B,"HTTP/1\.0\x20404\x20Not\x20Found\r\nContent-Type:\x20text/html;\
+SF:x20charset=UTF-8\r\nX-Request-Id:\x204d287db2-56c5-4ab8-8bdb-27db35be12
+SF:e8\r\nX-Runtime:\x200\.002178\r\nContent-Length:\x201722\r\n\r\n<!DOCTY
+SF:PE\x20html>\n<html>\n<head>\n\x20\x20<title>The\x20page\x20you\x20were\
+SF:x20looking\x20for\x20doesn't\x20exist\x20\(404\)</title>\n\x20\x20<meta
+SF:\x20name=\"viewport\"\x20content=\"width=device-width,initial-scale=1\"
+SF:>\n\x20\x20<style>\n\x20\x20\.rails-default-error-page\x20{\n\x20\x20\x
+SF:20\x20background-color:\x20#EFEFEF;\n\x20\x20\x20\x20color:\x20#2E2F30;
+SF:\n\x20\x20\x20\x20text-align:\x20center;\n\x20\x20\x20\x20font-family:\
+SF:x20arial,\x20sans-serif;\n\x20\x20\x20\x20margin:\x200;\n\x20\x20}\n\n\
+SF:x20\x20\.rails-default-error-page\x20div\.dialog\x20{\n\x20\x20\x20\x20
+SF:width:\x2095%;\n\x20\x20\x20\x20max-width:\x2033em;\n\x20\x20\x20\x20ma
+SF:rgin:\x204em\x20auto\x200;\n\x20\x20}\n\n\x20\x20\.rails-default-error-
+SF:page\x20div\.dialog\x20>\x20div\x20{\n\x20\x20\x20\x20border:\x201px\x2
+SF:0solid\x20#CCC;\n\x20\x20\x20\x20border-right-color:\x20#999;\n\x20\x20
+SF:\x20\x20border-left-color:\x20#999;\n\x20\x20\x20\x20border-bottom-colo
+SF:r:\x20#BBB;\n\x20\x20\x20\x20border-top:\x20#B00100\x20solid\x204px;\n\
+SF:x20\x20\x20\x20border-top-left-radius:\x209px;\n\x20\x20\x20\x20border-
+SF:top-right-radius:\x209px;\n\x20\x20\x20\x20background-color:\x20white");
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|PBX
+Running (JUST GUESSING): Linux 2.6.X|3.X|4.X (90%), Vodavi embedded (87%)
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32 cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4 cpe:/h:vodavi:xts-ip
+Aggressive OS guesses: Linux 2.6.32 (90%), Linux 3.2 - 4.8 (90%), Linux 2.6.32 - 3.10 (89%), Linux 2.6.32 - 3.13 (89%), Vodavi XTS-IP PBX (87%)
+No exact OS matches for host (test conditions non-ideal).
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT      ADDRESS
+-   Hops 1-6 are the same as for 52.216.164.90
+7   17.32 ms be-12274-pe01.nota.fl.ibone.comcast.net (68.86.82.154)
+8   20.15 ms 50.248.119.150
+9   ... 16
+17  48.59 ms 54.240.229.175
+18  ... 30
+
+Nmap scan report for s3-website-us-east-1.amazonaws.com (52.216.164.90)
+Host is up (0.050s latency).
+
+PORT      STATE    SERVICE VERSION
+22/tcp    filtered ssh
+80/tcp    open     http    Amazon S3 httpd
+|_http-server-header: AmazonS3
+6379/tcp  filtered redis
+27017/tcp filtered mongod
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: DEC Digital UNIX 5.X (97%), 3Com SuperStack 3 Switch 3870 (94%), Aastra A510 VoIP phone (94%), Cisco IP Phone 7911 (93%), Cisco IP Phone 7941, 7961, 7965G, or 7975 (93%), Cisco IP Phone 7942G (93%), Cisco IP Phone 7945 (93%), Cisco IP Phone 7945G (93%), Cisco IP Phone 7975G (93%), Cisco Unified IP Phone 7942G (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT      ADDRESS
+-   Hops 1-2 are the same as for 107.23.165.154
+3   22.45 ms 96.110.110.249
+4   13.06 ms 69.139.181.161
+5   18.47 ms be-40-ar01.northdade.fl.pompano.comcast.net (68.86.165.161)
+6   25.88 ms be-20214-cr02.miami.fl.ibone.comcast.net (68.86.90.205)
+7   16.79 ms be-12297-pe03.nota.fl.ibone.comcast.net (68.86.82.70)
+8   16.16 ms 96-87-8-158-static.hfc.comcastbusiness.net (96.87.8.158)
+9   ... 30
+
+Nmap scan report for s3-website-us-east-1.amazonaws.com (52.216.77.115)
+Host is up (0.048s latency).
+
+PORT      STATE    SERVICE VERSION
+22/tcp    filtered ssh
+80/tcp    open     http    Amazon S3 httpd
+|_http-server-header: AmazonS3
+6379/tcp  filtered redis
+27017/tcp filtered mongod
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: DEC Digital UNIX 5.X (97%), 3Com SuperStack 3 Switch 3870 (94%), Aastra A510 VoIP phone (94%), Cisco IP Phone 7911 (93%), Cisco IP Phone 7941, 7961, 7965G, or 7975 (93%), Cisco IP Phone 7942G (93%), Cisco IP Phone 7945 (93%), Cisco IP Phone 7945G (93%), Cisco IP Phone 7975G (93%), Cisco Unified IP Phone 7942G (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT      ADDRESS
+-   Hops 1-9 are the same as for 107.23.165.154
+10  ... 17
+18  50.77 ms 54.240.229.217
+19  ... 30
+
+Nmap scan report for s3-website-us-east-1.amazonaws.com (52.216.92.242)
+Host is up (0.050s latency).
+
+PORT      STATE    SERVICE VERSION
+22/tcp    filtered ssh
+80/tcp    open     http    Amazon S3 httpd
+|_http-server-header: AmazonS3
+6379/tcp  filtered redis
+27017/tcp filtered mongod
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: DEC Digital UNIX 5.X (97%), 3Com SuperStack 3 Switch 3870 (94%), Aastra A510 VoIP phone (94%), Cisco IP Phone 7911 (93%), Cisco IP Phone 7941, 7961, 7965G, or 7975 (93%), Cisco IP Phone 7942G (93%), Cisco IP Phone 7945 (93%), Cisco IP Phone 7945G (93%), Cisco IP Phone 7975G (93%), Cisco Unified IP Phone 7942G (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT      ADDRESS
+-   Hops 1-7 are the same as for 107.23.165.154
+8   22.70 ms be-12297-pe03.nota.fl.ibone.comcast.net (68.86.82.70)
+9   25.25 ms 96-87-8-158-static.hfc.comcastbusiness.net (96.87.8.158)
+10  ... 30
+
+Nmap scan report for ec2-52-90-159-198.compute-1.amazonaws.com (52.90.159.198)
+Host is up (0.047s latency).
+
+PORT      STATE SERVICE VERSION
+22/tcp    open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+80/tcp    open  http    nginx 1.14.0 (Ubuntu)
+|_http-server-header: nginx/1.14.0 (Ubuntu)
+6379/tcp  open  redis   Redis key-value store 4.0.9 (64 bits)
+| redis-info: 
+|   Version: 4.0.9
+|   Operating System: Linux 4.15.0-1044-aws x86_64
+|   Architecture: 64 bits
+|   Process ID: 21303
+|   Used CPU (sys): 480.84
+|   Used CPU (user): 286.47
+|   Connected clients: 1
+|   Connected slaves: 0
+|   Used memory: 5.37M
+|   Role: master
+|   Bind addresses: 
+|     0.0.0.0
+|   Client connections: 
+|_    96.71.19.172
+27017/tcp open  mongodb MongoDB 3.6.3 3.6.3
+|_mongodb-brute: No authentication needed
+| mongodb-databases: 
+|   databases
+|     3
+|       name = local
+|       empty = false
+|       sizeOnDisk = 65536.0
+|     0
+|       name = admin
+|       empty = false
+|       sizeOnDisk = 32768.0
+|     1
+|       name = config
+|       empty = false
+|       sizeOnDisk = 110592.0
+|     2
+|       name = demo
+|       empty = false
+|       sizeOnDisk = 65536.0
+|   totalSize = 274432.0
+|_  ok = 1.0
+| mongodb-info: 
+|   MongoDB Build info
+|     sysInfo = deprecated
+|     bits = 64
+|     ok = 1.0
+|     allocator = tcmalloc
+|     gitVersion = 9586e557d54ef70f9ca4b43c26892cd55257e1a5
+|     maxBsonObjectSize = 16777216
+|     versionArray
+|       3 = 0
+|       0 = 3
+|       1 = 6
+|       2 = 3
+|     javascriptEngine = mozjs
+|     buildEnvironment
+|       target_arch = x86_64
+|       linkflags = -Wl,-Bsymbolic-functions -Wl,-z,relro -pthread -Wl,-z,now -rdynamic -Wl,--fatal-warnings -fstack-protector-strong -fuse-ld=gold -Wl,--build-id -Wl,--hash-style=gnu -Wl,-z,noexecstack -Wl,--warn-execstack -Wl,-z,relro
+|       cxxflags = -g -O2 -fdebug-prefix-map=/build/mongodb-CVvAHU/mongodb-3.6.3=. -fstack-protector-strong -Wformat -Werror=format-security -Woverloaded-virtual -Wno-maybe-uninitialized -std=c++14
+|       cxx = g++: g++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0
+|       cc = cc: cc (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0
+|       target_os = linux
+|       ccflags = -fno-omit-frame-pointer -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare -Wno-unknown-pragmas -Wno-error=c++1z-compat -Wno-error=noexcept-type -Wno-error=format-truncation -Wno-error=int-in-bool-context -Winvalid-pch -Werror -O2 -Wno-unused-local-typedefs -Wno-unused-function -Wno-deprecated-declarations -Wno-unused-const-variable -Wno-unused-but-set-variable -Wno-missing-braces -fstack-protector-strong -fno-builtin-memcmp
+|       distarch = x86_64
+|       distmod = 
+|     modules
+|     storageEngines
+|       3 = wiredTiger
+|       0 = devnull
+|       1 = ephemeralForTest
+|       2 = mmapv1
+|     openssl
+|       running = OpenSSL 1.1.1  11 Sep 2018
+|       compiled = OpenSSL 1.1.0g  2 Nov 2017
+|     debug = false
+|     version = 3.6.3
+|   Server status
+|     logicalSessionRecordCache
+|       lastSessionsCollectionJobEntriesRefreshed = 3
+|       lastTransactionReaperJobEntriesCleanedUp = 0
+|       lastSessionsCollectionJobDurationMillis = 0
+|       transactionReaperJobCount = 0
+|       activeSessionsCount = 3
+|       lastTransactionReaperJobDurationMillis = 0
+|       lastSessionsCollectionJobTimestamp = 1592349834112
+|       lastSessionsCollectionJobCursorsClosed = 0
+|       lastTransactionReaperJobTimestamp = 1591573718060
+|       lastSessionsCollectionJobEntriesEnded = 0
+|       sessionsCollectionJobCount = 2587
+|     process = mongod
+|     tcmalloc
+|       tcmalloc
+|         formattedString = ------------------------------------------------
+|         MALLOC:       68600816 (   65.4 MiB) Bytes in use by application
+|         MALLOC: +            0 (    0.0 MiB) Bytes in page heap freelist
+|         MALLOC: +       762152 (    0.7 MiB) Bytes in central cache freelist
+|         MALLOC: +      3424256 (    3.3 MiB) Bytes in transfer cache freelist
+|         MALLOC: +      3070696 (    2.9 MiB) Bytes in thread cache freelists
+|         MALLOC: +      1224896 (    1.2 MiB) Bytes in malloc metadata
+|         MALLOC:   ------------
+|         MALLOC: =     77082816 (   73.5 MiB) Actual memory used (physical + swap)
+|         MALLOC: +      2334720 (    2.2 MiB) Bytes released to OS (aka unmapped)
+|         MALLOC:   ------------
+|         MALLOC: =     79417536 (   75.7 MiB) Virtual address space used
+|         MALLOC:
+|         MALLOC:            822              Spans in use
+|         MALLOC:             19              Thread heaps in use
+|         MALLOC:           8192              Tcmalloc page size
+|         ------------------------------------------------
+|         Call ReleaseFreeMemory() to release freelist memory to the OS (via madvise()).
+|         Bytes released to the OS take up virtual address space but no physical memory.
+|         transfer_cache_free_bytes = 3424256
+|         total_free_bytes = 7257104
+|         aggressive_memory_decommit = 1
+|         thread_cache_free_bytes = 3070696
+|         pageheap_unmapped_bytes = 2334720
+|         max_total_thread_cache_bytes = 260046848
+|         pageheap_free_bytes = 0
+|         current_total_thread_cache_bytes = 3070696
+|         central_cache_free_bytes = 762152
+|       generic
+|         current_allocated_bytes = 68600816
+|         heap_size = 78192640
+|     extra_info
+|       page_faults = 0
+|       note = fields vary by platform
+|     host = ip-10-10-10-37
+|     ok = 1.0
+|     storageEngine
+|       supportsCommittedReads = true
+|       name = wiredTiger
+|       readOnly = false
+|       persistent = true
+|     metrics
+|       ttl
+|         deletedDocuments = 11
+|         passes = 12935
+|       getLastError
+|         wtime
+|           num = 0
+|           totalMillis = 0
+|         wtimeouts = 0
+|       cursor
+|         timedOut = 0
+|         open
+|           total = 0
+|           noTimeout = 0
+|           pinned = 0
+|       queryExecutor
+|         scannedObjects = 76528
+|         scanned = 7602
+|       operation
+|         writeConflicts = 0
+|         scanAndOrder = 0
+|       commands
+|         logRotate
+|           total = 0
+|           failed = 0
+|         _configsvrBalancerStart
+|           total = 0
+|           failed = 0
+|         hostInfo
+|           total = 0
+|           failed = 0
+|         mergeChunks
+|           total = 0
+|           failed = 0
+|         killAllSessionsByPattern
+|           total = 0
+|           failed = 0
+|         dbHash
+|           total = 0
+|           failed = 0
+|         createUser
+|           total = 0
+|           failed = 0
+|         _recvChunkStatus
+|           total = 0
+|           failed = 0
+|         buildInfo
+|           total = 3584
+|           failed = 0
+|         grantPrivilegesToRole
+|           total = 0
+|           failed = 0
+|         splitVector
+|           total = 0
+|           failed = 0
+|         currentOp
+|           total = 1
+|           failed = 0
+|         replSetMaintenance
+|           total = 0
+|           failed = 0
+|         dbStats
+|           total = 0
+|           failed = 0
+|         cloneCollection
+|           total = 0
+|           failed = 0
+|         planCacheClear
+|           total = 0
+|           failed = 0
+|         count
+|           total = 5
+|           failed = 0
+|         invalidateUserCache
+|           total = 0
+|           failed = 0
+|         planCacheListFilters
+|           total = 0
+|           failed = 0
+|         dropAllRolesFromDatabase
+|           total = 0
+|           failed = 0
+|         _configsvrCommitChunkMerge
+|           total = 0
+|           failed = 0
+|         _transferMods
+|           total = 0
+|           failed = 0
+|         saslStart
+|           total = 0
+|           failed = 0
+|         setParameter
+|           total = 0
+|           failed = 0
+|         createRole
+|           total = 0
+|           failed = 0
+|         revokePrivilegesFromRole
+|           total = 0
+|           failed = 0
+|         _configsvrAddShardToZone
+|           total = 0
+|           failed = 0
+|         authenticate
+|           total = 0
+|           failed = 0
+|         convertToCapped
+|           total = 0
+|           failed = 0
+|         dropRole
+|           total = 0
+|           failed = 0
+|         planCacheListQueryShapes
+|           total = 0
+|           failed = 0
+|         getParameter
+|           total = 0
+|           failed = 0
+|         repairCursor
+|           total = 0
+|           failed = 0
+|         shutdown
+|           total = 0
+|           failed = 0
+|         _configsvrBalancerStop
+|           total = 0
+|           failed = 0
+|         _configsvrCommitChunkSplit
+|           total = 0
+|           failed = 0
+|         isMaster
+|           total = 33393
+|           failed = 0
+|         getCmdLineOpts
+|           total = 31
+|           failed = 0
+|         fsyncUnlock
+|           total = 0
+|           failed = 0
+|         explain
+|           total = 0
+|           failed = 0
+|         _recvChunkStart
+|           total = 0
+|           failed = 0
+|         _migrateClone
+|           total = 0
+|           failed = 0
+|         drop
+|           total = 8
+|           failed = 0
+|         whatsmyuri
+|           total = 1751
+|           failed = 0
+|         getDiagnosticData
+|           total = 0
+|           failed = 0
+|         _flushRoutingTableCacheUpdates
+|           total = 0
+|           failed = 0
+|         killCursors
+|           total = 0
+|           failed = 0
+|         profile
+|           total = 0
+|           failed = 0
+|         getLog
+|           total = 31
+|           failed = 0
+|         getShardMap
+|           total = 0
+|           failed = 0
+|         dropUser
+|           total = 0
+|           failed = 0
+|         compact
+|           total = 0
+|           failed = 0
+|         getPrevError
+|           total = 0
+|           failed = 0
+|         distinct
+|           total = 0
+|           failed = 0
+|         replSetStepUp
+|           total = 0
+|           failed = 0
+|         _configsvrRemoveShard
+|           total = 0
+|           failed = 0
+|         getnonce
+|           total = 0
+|           failed = 0
+|         revokeRolesFromUser
+|           total = 0
+|           failed = 0
+|         _configsvrUpdateZoneKeyRange
+|           total = 0
+|           failed = 0
+|         _configsvrCommitChunkMigration
+|           total = 0
+|           failed = 0
+|         listCommands
+|           total = 0
+|           failed = 0
+|         planCacheClearFilters
+|           total = 0
+|           failed = 0
+|         delete
+|           total = 21
+|           failed = 0
+|         _isSelf
+|           total = 0
+|           failed = 0
+|         listCollections
+|           total = 65
+|           failed = 0
+|         collMod
+|           total = 0
+|           failed = 0
+|         killAllSessions
+|           total = 0
+|           failed = 0
+|         unsetSharding
+|           total = 0
+|           failed = 0
+|         group
+|           total = 0
+|           failed = 0
+|         replSetUpdatePosition
+|           total = 0
+|           failed = 0
+|         validate
+|           total = 0
+|           failed = 0
+|         usersInfo
+|           total = 0
+|           failed = 0
+|         updateUser
+|           total = 0
+|           failed = 0
+|         replSetFresh
+|           total = 0
+|           failed = 0
+|         touch
+|           total = 0
+|           failed = 0
+|         update
+|           total = 2587
+|           failed = 0
+|         logout
+|           total = 0
+|           failed = 0
+|         clone
+|           total = 0
+|           failed = 0
+|         authSchemaUpgrade
+|           total = 0
+|           failed = 0
+|         endSessions
+|           total = 34
+|           failed = 0
+|         dropIndexes
+|           total = 0
+|           failed = 0
+|         filemd5
+|           total = 0
+|           failed = 0
+|         connectionStatus
+|           total = 0
+|           failed = 0
+|         startSession
+|           total = 0
+|           failed = 0
+|         splitChunk
+|           total = 0
+|           failed = 0
+|         _getNextSessionMods
+|           total = 0
+|           failed = 0
+|         <UNKNOWN> = 1
+|         forceerror
+|           total = 0
+|           failed = 0
+|         mapreduce
+|           shardedfinish
+|             total = 0
+|             failed = 0
+|         shardingState
+|           total = 0
+|           failed = 0
+|         getShardVersion
+|           total = 0
+|           failed = 0
+|         geoSearch
+|           total = 0
+|           failed = 0
+|         shardConnPoolStats
+|           total = 0
+|           failed = 0
+|         setShardVersion
+|           total = 0
+|           failed = 0
+|         replSetSyncFrom
+|           total = 0
+|           failed = 0
+|         _mergeAuthzCollections
+|           total = 0
+|           failed = 0
+|         setFeatureCompatibilityVersion
+|           total = 0
+|           failed = 0
+|         serverStatus
+|           total = 88
+|           failed = 0
+|         saslContinue
+|           total = 0
+|           failed = 0
+|         rolesInfo
+|           total = 0
+|           failed = 0
+|         checkShardingIndex
+|           total = 0
+|           failed = 0
+|         planCacheSetFilter
+|           total = 0
+|           failed = 0
+|         refreshSessionsInternal
+|           total = 0
+|           failed = 0
+|         resync
+|           total = 0
+|           failed = 0
+|         _configsvrShardCollection
+|           total = 0
+|           failed = 0
+|         replSetStepDown
+|           total = 0
+|           failed = 0
+|         replSetResizeOplog
+|           total = 0
+|           failed = 0
+|         dropAllUsersFromDatabase
+|           total = 0
+|           failed = 0
+|         find
+|           total = 59724
+|           failed = 0
+|         replSetRequestVotes
+|           total = 0
+|           failed = 0
+|         replSetReconfig
+|           total = 0
+|           failed = 0
+|         replSetInitiate
+|           total = 0
+|           failed = 0
+|         replSetHeartbeat
+|           total = 0
+|           failed = 0
+|         repairDatabase
+|           total = 0
+|           failed = 0
+|         grantRolesToRole
+|           total = 0
+|           failed = 0
+|         handshake
+|           total = 0
+|           failed = 0
+|         replSetGetStatus
+|           total = 1751
+|           failed = 1751
+|         grantRolesToUser
+|           total = 0
+|           failed = 0
+|         replSetGetConfig
+|           total = 0
+|           failed = 0
+|         updateRole
+|           total = 0
+|           failed = 0
+|         create
+|           total = 0
+|           failed = 0
+|         features
+|           total = 0
+|           failed = 0
+|         replSetFreeze
+|           total = 0
+|           failed = 0
+|         cleanupOrphaned
+|           total = 0
+|           failed = 0
+|         replSetElect
+|           total = 0
+|           failed = 0
+|         replSetAbortPrimaryCatchUp
+|           total = 0
+|           failed = 0
+|         renameCollection
+|           total = 0
+|           failed = 0
+|         replSetGetRBID
+|           total = 0
+|           failed = 0
+|         refreshSessions
+|           total = 0
+|           failed = 0
+|         reIndex
+|           total = 0
+|           failed = 0
+|         planCacheListPlans
+|           total = 0
+|           failed = 0
+|         _recvChunkAbort
+|           total = 0
+|           failed = 0
+|         getLastError
+|           total = 0
+|           failed = 0
+|         ping
+|           total = 29711
+|           failed = 0
+|         _configsvrCreateDatabase
+|           total = 0
+|           failed = 0
+|         fsync
+|           total = 0
+|           failed = 0
+|         revokeRolesFromRole
+|           total = 0
+|           failed = 0
+|         killOp
+|           total = 0
+|           failed = 0
+|         applyOps
+|           total = 0
+|           failed = 0
+|         lockInfo
+|           total = 0
+|           failed = 0
+|         _configsvrMoveChunk
+|           total = 0
+|           failed = 0
+|         _configsvrRemoveShardFromZone
+|           total = 0
+|           failed = 0
+|         _configsvrMovePrimary
+|           total = 0
+|           failed = 0
+|         parallelCollectionScan
+|           total = 0
+|           failed = 0
+|         availableQueryOptions
+|           total = 0
+|           failed = 0
+|         geoNear
+|           total = 0
+|           failed = 0
+|         moveChunk
+|           total = 0
+|           failed = 0
+|         mapReduce
+|           total = 0
+|           failed = 0
+|         connPoolStats
+|           total = 0
+|           failed = 0
+|         connPoolSync
+|           total = 0
+|           failed = 0
+|         aggregate
+|           total = 1
+|           failed = 0
+|         top
+|           total = 0
+|           failed = 0
+|         appendOplogNote
+|           total = 0
+|           failed = 0
+|         cloneCollectionAsCapped
+|           total = 0
+|           failed = 0
+|         getMore
+|           total = 0
+|           failed = 0
+|         insert
+|           total = 10
+|           failed = 0
+|         listDatabases
+|           total = 97
+|           failed = 0
+|         killSessions
+|           total = 0
+|           failed = 0
+|         eval
+|           total = 0
+|           failed = 0
+|         dropDatabase
+|           total = 0
+|           failed = 0
+|         _getUserCacheGeneration
+|           total = 0
+|           failed = 0
+|         dataSize
+|           total = 0
+|           failed = 0
+|         driverOIDTest
+|           total = 0
+|           failed = 0
+|         _configsvrAddShard
+|           total = 0
+|           failed = 0
+|         findAndModify
+|           total = 0
+|           failed = 0
+|         resetError
+|           total = 0
+|           failed = 0
+|         copydb
+|           total = 0
+|           failed = 0
+|         copydbsaslstart
+|           total = 0
+|           failed = 0
+|         _recvChunkCommit
+|           total = 0
+|           failed = 0
+|         createIndexes
+|           total = 2587
+|           failed = 0
+|         copydbgetnonce
+|           total = 0
+|           failed = 0
+|         listIndexes
+|           total = 0
+|           failed = 0
+|         collStats
+|           total = 5
+|           failed = 0
+|         _configsvrBalancerStatus
+|           total = 0
+|           failed = 0
+|         _configsvrEnableSharding
+|           total = 0
+|           failed = 0
+|       record
+|         moves = 0
+|       storage
+|         freelist
+|           search
+|             requests = 0
+|             bucketExhausted = 0
+|             scanned = 0
+|       document
+|         inserted = 10
+|         deleted = 13
+|         returned = 68927
+|         updated = 7589
+|       repl
+|         initialSync
+|           failures = 0
+|           failedAttempts = 0
+|           completed = 0
+|         buffer
+|           sizeBytes = 0
+|           maxSizeBytes = 0
+|           count = 0
+|         preload
+|           docs
+|             num = 0
+|             totalMillis = 0
+|           indexes
+|             num = 0
+|             totalMillis = 0
+|         network
+|           getmores
+|             num = 0
+|             totalMillis = 0
+|           readersCreated = 0
+|           ops = 0
+|           bytes = 0
+|         apply
+|           batches
+|             num = 0
+|             totalMillis = 0
+|           attemptsToBecomeSecondary = 0
+|           ops = 0
+|         executor
+|           shuttingDown = false
+|           unsignaledEvents = 0
+|           queues
+|             sleepers = 0
+|             networkInProgress = 0
+|           networkInterface = 
+|           NetworkInterfaceASIO Operations' Diagnostic:
+|           Operation:    Count:   
+|           Connecting    0        
+|           In Progress   0        
+|           Succeeded     0        
+|           Canceled      0        
+|           Failed        0        
+|           Timed Out     0        
+|           
+|           pool
+|             inProgressCount = 0
+|     version = 3.6.3
+|     uptimeMillis = 776234488
+|     asserts
+|       warning = 0
+|       user = 2
+|       msg = 0
+|       regular = 0
+|       rollovers = 0
+|     mem
+|       resident = 74
+|       supported = true
+|       virtual = 1014
+|       mappedWithJournal = 0
+|       mapped = 0
+|       bits = 64
+|     wiredTiger
+|       data-handle
+|         connection sweep dhandles closed = 14
+|         connection sweep dhandles removed from hash list = 5286
+|         session sweep attempts = 4170
+|         connection sweeps = 77581
+|         session dhandles swept = 16743
+|         connection data handles currently active = 28
+|         connection sweep time-of-death sets = 5308
+|         connection sweep candidate became referenced = 0
+|       log
+|         log files manually zero-filled = 0
+|         log server thread write LSN walk skipped = 808196
+|         written slots coalesced = 0
+|         number of pre-allocated log files to create = 2
+|         log flush operations = 7599685
+|         total log buffer size = 33554432
+|         log records compressed = 2661
+|         logging bytes consolidated = 6717184
+|         records processed by log scan = 13
+|         log sync_dir time duration (usecs) = 1609
+|         force checkpoint calls slept = 0
+|         slot join found active slot closed = 0
+|         yields waiting for previous log file close = 0
+|         total in-memory size of compressed records = 5606321
+|         log scan records requiring two reads = 0
+|         pre-allocated log files used = 0
+|         log bytes of payload data = 4226072
+|         total size of compressed records = 2700377
+|         slot unbuffered writes = 0
+|         slot transitions unable to find free slot = 0
+|         log records not compressed = 7669
+|         busy returns attempting to switch slots = 1
+|         slot joins yield time (usecs) = 0
+|         slot join calls yielded = 0
+|         log force write operations = 8389217
+|         log scan operations = 6
+|         slot join calls slept = 0
+|         log sync_dir operations = 1
+|         maximum log file size = 104857600
+|         slot join calls found active slot closed = 0
+|         log sync operations = 16995
+|         log force write operations skipped = 8374811
+|         slot join calls atomic updates raced = 0
+|         slot join calls did not yield = 26038
+|         log bytes written = 6717696
+|         slot closures = 17067
+|         pre-allocated log files not ready and missed = 1
+|         slot close lost race = 0
+|         slot close unbuffered waits = 0
+|         slot join atomic update races = 0
+|         log server thread advances write LSN = 14406
+|         pre-allocated log files prepared = 2
+|         log release advances write LSN = 2661
+|         log records too small to compress = 15708
+|         log write operations = 26038
+|         log sync time duration (usecs) = 50830412
+|       block-manager
+|         bytes written = 172224512
+|         bytes read = 32370688
+|         blocks written = 31556
+|         bytes written for checkpoint = 172212224
+|         mapped bytes read = 0
+|         mapped blocks read = 0
+|         blocks read = 7900
+|         blocks pre-loaded = 9
+|       reconciliation
+|         split objects currently awaiting free = 0
+|         fast-path pages deleted = 0
+|         page reconciliation calls for eviction = 4
+|         pages deleted = 2
+|         split bytes currently awaiting free = 0
+|         page reconciliation calls = 15788
+|       uri = statistics:
+|       thread-state
+|         active filesystem fsync calls = 0
+|         active filesystem read calls = 0
+|         active filesystem write calls = 0
+|       cache
+|         pages queued for urgent eviction = 0
+|         failed eviction of pages that exceeded the in-memory maximum count = 0
+|         pages written requiring in-memory restoration = 0
+|         eviction walk target pages histogram - 64-128 = 0
+|         page split during eviction deepened the tree = 0
+|         tracked dirty bytes in the cache = 0
+|         leaf pages split during eviction = 0
+|         pages seen by eviction walk = 0
+|         modified pages evicted = 9
+|         application threads page read from disk to cache time (usecs) = 90
+|         pages currently held in the cache = 29
+|         eviction worker thread stable number = 0
+|         hazard pointer check calls = 7
+|         pages requested from the cache = 504831
+|         files with new eviction walks started = 0
+|         hazard pointer check entries walked = 0
+|         lookaside score = 0
+|         eviction worker thread removed = 0
+|         eviction state = 32
+|         bytes written from cache = 50361965
+|         eviction currently operating in aggressive mode = 0
+|         eviction server slept, because we did not make progress with eviction = 0
+|         eviction empty score = 0
+|         modified pages evicted by application threads = 0
+|         failed eviction of pages that exceeded the in-memory maximum time (usecs) = 0
+|         lookaside table remove calls = 0
+|         eviction walk target pages histogram - 32-63 = 0
+|         eviction server candidate queue not empty when topping up = 0
+|         eviction server evicting pages = 0
+|         pages read into cache with skipped lookaside entries needed later = 0
+|         application threads page write from cache to disk count = 15786
+|         eviction walks gave up because they restarted their walk twice = 0
+|         pages evicted because they had chains of deleted items time (usecs) = 1533
+|         percentage overhead = 8
+|         bytes read into cache = 22021
+|         eviction walks gave up because they saw too many pages and found no candidates = 0
+|         in-memory page passed criteria to be split = 0
+|         bytes belonging to the lookaside table in the cache = 182
+|         hazard pointer blocked page eviction = 0
+|         eviction walks gave up because they saw too many pages and found too few candidates = 0
+|         unmodified pages evicted = 0
+|         tracked dirty pages in the cache = 0
+|         eviction walk target pages histogram - 128 and higher = 0
+|         tracked bytes belonging to leaf pages in the cache = 176292
+|         tracked bytes belonging to internal pages in the cache = 5709
+|         pages walked for eviction = 0
+|         pages written from cache = 15787
+|         eviction worker thread created = 0
+|         eviction server unable to reach eviction goal = 0
+|         eviction walks started from saved location in tree = 0
+|         pages read into cache requiring lookaside entries = 0
+|         force re-tuning of eviction workers once in a while = 0
+|         pages read into cache = 22
+|         pages evicted because they exceeded the in-memory maximum time (usecs) = 0
+|         pages queued for eviction = 0
+|         eviction walk target pages histogram - 0-9 = 0
+|         eviction server candidate queue empty when topping up = 0
+|         bytes currently in the cache = 182001
+|         pages queued for urgent eviction during walk = 0
+|         internal pages split during eviction = 0
+|         page written requiring lookaside records = 0
+|         application threads page read from disk to cache count = 12
+|         application threads page write from cache to disk time (usecs) = 1391040
+|         overflow pages read into cache = 0
+|         pages read into cache skipping older lookaside entries = 0
+|         files with active eviction walks = 0
+|         maximum page size at eviction = 0
+|         eviction worker thread evicting pages = 0
+|         eviction walks started from root of tree = 0
+|         lookaside table insert calls = 0
+|         in-memory page splits = 0
+|         pages evicted because they had chains of deleted items count = 7
+|         hazard pointer maximum array length = 0
+|         pages evicted because they exceeded the in-memory maximum count = 0
+|         internal pages evicted = 0
+|         eviction walk target pages histogram - 10-31 = 0
+|         lookaside table entries = 0
+|         eviction calls to get a page found queue empty = 111
+|         maximum bytes configured = 506462208
+|         eviction walks reached end of tree = 0
+|         eviction worker thread active = 4
+|         pages evicted by application threads = 0
+|         checkpoint blocked page eviction = 0
+|         eviction calls to get a page = 111
+|         pages selected for eviction unable to be evicted = 0
+|         bytes not belonging to page images in the cache = 161543
+|         eviction passes of a file = 0
+|         eviction walks abandoned = 0
+|         bytes belonging to page images in the cache = 20458
+|         eviction calls to get a page found queue empty after locking = 0
+|       perf
+|         file system write latency histogram (bucket 3) - 100-249ms = 0
+|         file system write latency histogram (bucket 6) - 1000ms+ = 0
+|         file system read latency histogram (bucket 2) - 50-99ms = 0
+|         file system write latency histogram (bucket 4) - 250-499ms = 0
+|         file system read latency histogram (bucket 3) - 100-249ms = 0
+|         file system write latency histogram (bucket 5) - 500-999ms = 0
+|         file system read latency histogram (bucket 5) - 500-999ms = 0
+|         operation read latency histogram (bucket 4) - 1000-9999us = 1
+|         operation read latency histogram (bucket 3) - 500-999us = 0
+|         file system write latency histogram (bucket 1) - 10-49ms = 47
+|         operation write latency histogram (bucket 4) - 1000-9999us = 0
+|         operation write latency histogram (bucket 3) - 500-999us = 0
+|         operation write latency histogram (bucket 2) - 250-499us = 0
+|         operation write latency histogram (bucket 1) - 100-249us = 3
+|         operation read latency histogram (bucket 5) - 10000us+ = 33
+|         file system read latency histogram (bucket 6) - 1000ms+ = 0
+|         file system read latency histogram (bucket 1) - 10-49ms = 6
+|         file system write latency histogram (bucket 2) - 50-99ms = 0
+|         file system read latency histogram (bucket 4) - 250-499ms = 0
+|         operation read latency histogram (bucket 2) - 250-499us = 1
+|         operation read latency histogram (bucket 1) - 100-249us = 264
+|         operation write latency histogram (bucket 5) - 10000us+ = 7
+|       connection
+|         pthread mutex condition wait calls = 12451227
+|         total write I/Os = 51271
+|         pthread mutex shared lock read-lock calls = 5657214
+|         auto adjusting condition wait calls = 4773372
+|         auto adjusting condition resets = 57141
+|         memory allocations = 14992912
+|         memory re-allocations = 2466345
+|         total read I/Os = 24731
+|         total fsync I/Os = 40479
+|         pthread mutex shared lock write-lock calls = 823108
+|         memory frees = 14989566
+|         detected system time went backwards = 0
+|         files currently open = 18
+|       thread-yield
+|         data handle lock yielded = 0
+|         application thread time waiting for cache (usecs) = 0
+|         connection close blocked waiting for transaction state stabilization = 0
+|         page acquire read blocked = 0
+|         tree descend one level yielded for split page index update = 0
+|         page reconciliation yielded due to child modification = 0
+|         page acquire eviction blocked = 0
+|         page acquire busy blocked = 0
+|         get reference for page index and slot time sleeping (usecs) = 0
+|         log server sync yielded for log write = 0
+|         page delete rollback time sleeping for state change (usecs) = 0
+|         application thread time evicting (usecs) = 0
+|         connection close yielded for lsm manager shutdown = 0
+|         page acquire time sleeping (usecs) = 0
+|         page acquire locked blocked = 0
+|       cursor
+|         cursor create calls = 117
+|         cursor remove calls = 7718
+|         cursor prev calls = 14
+|         cursor search near calls = 12966
+|         cursor next calls = 139917
+|         cursor update calls = 0
+|         truncate calls = 0
+|         cursor reserve calls = 0
+|         cursor insert calls = 20709
+|         cursor restarted searches = 0
+|         cursor search calls = 243301
+|         cursor reset calls = 512423
+|         cursor modify calls = 0
+|       LSM
+|         tree maintenance operations discarded = 0
+|         sleep for LSM checkpoint throttle = 0
+|         switch work units currently queued = 0
+|         sleep for LSM merge throttle = 0
+|         application work units currently queued = 0
+|         rows merged in an LSM tree = 0
+|         tree maintenance operations scheduled = 0
+|         tree queue hit maximum = 0
+|         merge work units currently queued = 0
+|         tree maintenance operations executed = 0
+|       transaction
+|         set timestamp oldest updates = 0
+|         transaction checkpoint most recent time (msecs) = 0
+|         read timestamp queue length = 0
+|         commit timestamp queue inserts total = 0
+|         commit timestamp queue length = 0
+|         commit timestamp queue insert to empty = 0
+|         transaction failures due to cache overflow = 0
+|         transaction checkpoint total time (msecs) = 109381
+|         transaction checkpoint min time (msecs) = 0
+|         transaction range of IDs currently pinned by named snapshots = 0
+|         query timestamp calls = 3223571
+|         transaction range of IDs currently pinned by a checkpoint = 0
+|         set timestamp commit updates = 0
+|         set timestamp stable updates = 0
+|         commit timestamp queue inserts to tail = 0
+|         transaction checkpoints = 12934
+|         number of named snapshots created = 0
+|         update conflicts = 0
+|         set timestamp oldest calls = 0
+|         transaction range of IDs currently pinned = 0
+|         set timestamp stable calls = 0
+|         transactions committed = 7711
+|         transaction sync calls = 0
+|         transaction range of timestamps pinned by the oldest timestamp = 0
+|         transaction range of timestamps currently pinned = 0
+|         transactions rolled back = 93673
+|         set timestamp commit calls = 0
+|         transaction checkpoints skipped because database was clean = 0
+|         transaction fsync duration for checkpoint after allocating the transaction ID (usecs) = 0
+|         transaction fsync calls for checkpoint after allocating the transaction ID = 12934
+|         read timestamp queue inserts total = 0
+|         number of named snapshots dropped = 0
+|         transaction checkpoint generation = 12935
+|         transaction checkpoint scrub time (msecs) = 0
+|         transaction checkpoint scrub dirty target = 0
+|         transaction begins = 101384
+|         read timestamp queue inserts to head = 0
+|         transaction checkpoint currently running = 0
+|         set timestamp calls = 0
+|         transaction checkpoint max time (msecs) = 139
+|         read timestamp queue insert to empty = 0
+|       session
+|         table rename successful calls = 0
+|         table create successful calls = 20
+|         table verify successful calls = 0
+|         table rename failed calls = 0
+|         table alter successful calls = 0
+|         open cursor count = 36
+|         table alter failed calls = 0
+|         table drop successful calls = 16
+|         table rebalance failed calls = 0
+|         table compact failed calls = 0
+|         table verify failed calls = 0
+|         table salvage successful calls = 0
+|         table rebalance successful calls = 0
+|         table alter unchanged and skipped = 0
+|         table truncate failed calls = 0
+|         table compact successful calls = 0
+|         table drop failed calls = 0
+|         table salvage failed calls = 0
+|         open session count = 21
+|         table truncate successful calls = 0
+|         table create failed calls = 0
+|       async
+|         number of times operation allocation failed = 0
+|         total search calls = 0
+|         total update calls = 0
+|         number of operation slots viewed for allocation = 0
+|         number of allocation state races = 0
+|         current work queue length = 0
+|         total remove calls = 0
+|         total insert calls = 0
+|         number of times worker found no work = 0
+|         total compact calls = 0
+|         total allocations = 0
+|         maximum work queue length = 0
+|         number of flush calls = 0
+|       concurrentTransactions
+|         write
+|           available = 128
+|           out = 0
+|           totalTickets = 128
+|         read
+|           available = 127
+|           out = 1
+|           totalTickets = 128
+|       lock
+|         table read lock acquisitions = 12934
+|         metadata lock acquisitions = 12934
+|         txn global lock internal thread time waiting for the dhandle lock (usecs) = 0
+|         table lock internal thread time waiting for the table lock (usecs) = 0
+|         read timestamp queue lock application thread time waiting for the dhandle lock (usecs) = 0
+|         dhandle lock internal thread time waiting for the dhandle lock (usecs) = 0
+|         checkpoint lock application thread wait time (usecs) = 16
+|         checkpoint lock internal thread wait time (usecs) = 0
+|         schema lock internal thread wait time (usecs) = 0
+|         txn global write lock acquisitions = 31226
+|         commit timestamp queue read lock acquisitions = 0
+|         txn global read lock acquisitions = 142861
+|         schema lock application thread wait time (usecs) = 19688
+|         metadata lock internal thread wait time (usecs) = 0
+|         commit timestamp queue write lock acquisitions = 0
+|         read timestamp queue lock internal thread time waiting for the dhandle lock (usecs) = 0
+|         checkpoint lock acquisitions = 12934
+|         read timestamp queue read lock acquisitions = 0
+|         table write lock acquisitions = 61
+|         table lock application thread time waiting for the table lock (usecs) = 0
+|         metadata lock application thread wait time (usecs) = 11
+|         dhandle write lock acquisitions = 10614
+|         dhandle read lock acquisitions = 3608244
+|         commit timestamp queue lock internal thread time waiting for the dhandle lock (usecs) = 0
+|         read timestamp queue write lock acquisitions = 0
+|         commit timestamp queue lock application thread time waiting for the dhandle lock (usecs) = 0
+|         dhandle lock application thread time waiting for the dhandle lock (usecs) = 11
+|         txn global lock application thread time waiting for the dhandle lock (usecs) = 14
+|         schema lock acquisitions = 12992
+|     transactions
+|       transactionsCollectionWriteCount = 0
+|       retriedCommandsCount = 0
+|       retriedStatementsCount = 0
+|     opcountersRepl
+|       delete = 0
+|       query = 0
+|       update = 0
+|       getmore = 0
+|       command = 0
+|       insert = 0
+|     uptimeEstimate = 776234
+|     localTime = 1592349951364
+|     connections
+|       available = 51195
+|       totalCreated = 2016
+|       current = 5
+|     pid = 21494
+|     locks
+|       Database
+|         acquireCount
+|           w = 20624
+|           W = 2610
+|           R = 68
+|           r = 1067734
+|         acquireWaitCount
+|           r = 1
+|         timeAcquiringMicros
+|           r = 28644
+|       Collection
+|         acquireCount
+|           w = 20625
+|           r = 1067358
+|       Global
+|         acquireCount
+|           w = 23234
+|           W = 5
+|           r = 2935444
+|     opLatencies
+|       commands
+|         ops = 70550
+|         latency = 1902398
+|       writes
+|         ops = 10
+|         latency = 519163
+|       reads
+|         ops = 59727
+|         latency = 16002732
+|     opcounters
+|       delete = 34
+|       query = 59728
+|       update = 7616
+|       getmore = 0
+|       command = 73143
+|       insert = 10
+|     network
+|       physicalBytesOut = 29600498
+|       compression
+|         snappy
+|           compressor
+|             bytesOut = 0
+|             bytesIn = 0
+|           decompressor
+|             bytesOut = 0
+|             bytesIn = 0
+|       serviceExecutorTaskStats
+|         executor = passthrough
+|         threadsRunning = 4
+|       bytesOut = 29600498
+|       bytesIn = 11543089
+|       numRequests = 130288
+|       physicalBytesIn = 11543089
+|     globalLock
+|       currentQueue
+|         readers = 0
+|         writers = 0
+|         total = 0
+|       totalTime = 776234488000
+|       activeClients
+|         readers = 0
+|         writers = 0
+|         total = 14
+|_    uptime = 776235.0
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: Linux 2.6.32 (93%), Linux 3.10 (93%), Linux 3.10 - 4.8 (93%), Linux 3.2 - 4.8 (93%), Linux 3.4 - 3.10 (93%), Linux 2.6.32 - 3.10 (92%), Linux 2.6.32 - 3.13 (92%), Synology DiskStation Manager 5.2-5644 (91%), Linux 2.6.22 - 2.6.36 (89%), Linux 2.6.39 (89%)
+No exact OS matches for host (test conditions non-ideal).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 443/tcp)
+HOP RTT    ADDRESS
+-   Hops 1-9 are the same as for 52.216.92.242
+10  ... 30
+
+Nmap scan report for s3-website-us-east-1.amazonaws.com (54.231.82.97)
+Host is up (0.044s latency).
+
+PORT      STATE    SERVICE VERSION
+22/tcp    filtered ssh
+80/tcp    open     http    Amazon S3 httpd
+|_http-server-header: AmazonS3
+6379/tcp  filtered redis
+27017/tcp filtered mongod
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: DEC Digital UNIX 5.X (92%), Cisco IP Phone (7911, 7941, 7961, or 7970) (91%), Cisco IP Phone CP-7970G (91%), Denver Electronics AC-5000W MK2 camera (90%), Satel ETHM-2 intruder alarm (90%), Wyse ThinOS 6 (90%), 3Com SuperStack 3 Switch 3870 (89%), Aastra A510 VoIP phone (89%), Samsung SCX-4x24-series printer (89%), Thomson TCW710 wireless cable modem (88%)
+No exact OS matches for host (test conditions non-ideal).
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT      ADDRESS
+-   Hops 1-9 are the same as for 107.23.165.154
+10  ... 17
+18  52.19 ms 72.21.222.251
+19  ... 30
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Jun 16 23:25:51 2020 -- 7 IP addresses (7 hosts up) scanned in 72.10 seconds
+sec588@slingshot:~/files/workdir$ 

@@ -1,0 +1,903 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SANS SEC588 Workshops Workbook">
+      
+      
+        <meta name="author" content="Moses Frost and Aaron Cure">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Identities Lab 2 - SANS SEC588 Workshops</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CSource+Code+Pro:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Source Code Pro"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/jquery.fancybox.min.css">
+    
+      <link rel="stylesheet" href="../../../css/pdf.css">
+    
+      <link rel="stylesheet" href="../../../css/html.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#attacking-user-identities-passwords" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SANS SEC588 Workshops" class="md-header__button md-logo" aria-label="SANS SEC588 Workshops" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 3 8 6v12h-5v-7H9v7H4V9l8-6Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SANS SEC588 Workshops
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Identities Lab 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../containers/containers/" class="md-tabs__link md-tabs__link--active">
+        Labs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../resources/virtual-machine-credentials/" class="md-tabs__link">
+        Resources
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SANS SEC588 Workshops" class="md-nav__button md-logo" aria-label="SANS SEC588 Workshops" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 3 8 6v12h-5v-7H9v7H4V9l8-6Z"/></svg>
+
+    </a>
+    SANS SEC588 Workshops
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Labs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Labs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Labs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../containers/containers/" class="md-nav__link">
+        Container Lab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-identities/" class="md-nav__link">
+        Identities Lab 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Identities Lab 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Identities Lab 2
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#brief-intro" class="md-nav__link">
+    Brief Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-for-this-lab" class="md-nav__link">
+    Requirements for This Lab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walkthrough" class="md-nav__link">
+    Walkthrough
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-identities/" class="md-nav__link">
+        Identities Lab 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/virtual-machine-credentials/" class="md-nav__link">
+        Virtual Machine Credentials
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#brief-intro" class="md-nav__link">
+    Brief Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-for-this-lab" class="md-nav__link">
+    Requirements for This Lab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walkthrough" class="md-nav__link">
+    Walkthrough
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="attacking-user-identities-passwords">Attacking User Identities - Passwords!</h1>
+<h2 id="brief-intro">Brief Intro</h2>
+<p>Welcome to our User Identities WorkShop Section 2, PASSWORDS!</p>
+<h2 id="requirements-for-this-lab">Requirements for This Lab</h2>
+<h2 id="walkthrough">Walkthrough</h2>
+<ol>
+<li>
+<p>We are now going to create a list of passwords in a file. This password file can be found <a href="../files/passwords.txt">here</a>.</p>
+<p>You can also download it using the following command line snippet:</p>
+<div class="admonition cmd">
+<p class="admonition-title">Command lines</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /home/sec588/Coursefiles/workdir
+</code></pre></div>
+</div>
+<div class="admonition cmd">
+<p class="admonition-title">Command lines</p>
+<div class="highlight"><pre><span></span><code>wget http://localhost/workbook/labs/identities/files/passwords.txt
+</code></pre></div>
+<details class="abstract">
+<summary>Expected results</summary>
+<div class="highlight"><pre><span></span><code><span class="gp">sec588@slingshot:/opt/Wordlister$ </span>wget http://localhost/workbook/labs/identities/files/passwords.txt
+<span class="go">--2022-07-19 22:17:33--  http://localhost/workbook/labs/identities/files/passwords.txt</span>
+<span class="go">Resolving localhost (localhost)... 127.0.0.1, ::1</span>
+<span class="go">Connecting to localhost (localhost)|127.0.0.1|:8000... connected.</span>
+<span class="go">HTTP request sent, awaiting response... 200 OK</span>
+<span class="go">Length: 404 [text/plain]</span>
+<span class="go">Saving to: ‘passwords.txt’</span>
+
+<span class="go">passwords.txt                   100%[=======================================================&gt;]     404  --.-KB/s    in 0s      </span>
+
+<span class="go">2022-07-19 22:17:33 (48.2 MB/s) - ‘passwords.txt’ saved [404/404]</span>
+</code></pre></div>
+</details>
+</div>
+</li>
+<li>
+<p>We now have a list of passwords, and they should be the following passwords for reference:</p>
+<div class="admonition abstract">
+<p class="admonition-title">List of Users</p>
+<div class="highlight"><pre><span></span><code><span class="go">HumanMusic2023</span>
+<span class="go">HumanMusic2024</span>
+<span class="go">SnakeJazz2023</span>
+<span class="go">SnakeJazz2024</span>
+<span class="go">GeniusScientist2023</span>
+<span class="go">GeniusScientist2024</span>
+<span class="go">HorseVet2023</span>
+<span class="go">HorseVet2024</span>
+</code></pre></div>
+</div>
+</li>
+<li>
+<p>Now let's use the TeamFiltration tool to spray usernames. This tool is one of the only very good tools that we have but like any newly released tool it still has many bugs. As long as we understand:</p>
+<ol>
+<li>What is the bug that is being caused</li>
+<li>What is the effect of the bug</li>
+</ol>
+<p>We can work around these issues.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>This tool sometimes will crash unexpectedly where you will see errors like:</p>
+<ul>
+<li>Cannot resolve the Amazon API Gateway that was just created</li>
+<li>Too many Gateway request for delete at one time</li>
+<li>False negatives where this may occur in the middle of a scan</li>
+</ul>
+<p>It is important to note that while this may seem like a problem, in many cases deleting the database can help you recover. Here is a simple way to do so:</p>
+<details class="cmd">
+<summary>Command lines</summary>
+<div class="highlight"><pre><span></span><code>rm -Rf /home/sec588/Coursefiles/workdir/teamfiltration
+</code></pre></div>
+</details>
+<details class="cmd">
+<summary>Command lines</summary>
+<div class="highlight"><pre><span></span><code>/opt/teamfiltration/TeamFiltration --outpath /home/sec588/Coursefiles/workdir/teamfiltration --enum --validate-login --config /home/sec588/Coursefiles/workdir/TeamFiltrationConfig_SEC588.json --usernames /home/sec588/Coursefiles/workdir/usernames.txt
+</code></pre></div>
+</details>
+</div>
+<div class="admonition cmd">
+<p class="admonition-title">Command lines</p>
+<div class="highlight"><pre><span></span><code>/opt/teamfiltration/TeamFiltration --outpath /home/sec588/Coursefiles/workdir/teamfiltration --config /home/sec588/Coursefiles/workdir/TeamFiltrationConfig_SEC588.json --spray --validate-login --sleep-min <span class="m">1</span> --sleep-max <span class="m">3</span> --jitter <span class="m">1</span> --usernames /home/sec588/Coursefiles/workdir/usernames.txt --passwords /home/sec588/Coursefiles/workdir/passwords.txt --shuffle-users --shuffle-regions
+</code></pre></div>
+<details class="example">
+<summary>Command Info</summary>
+<p>Here is are the command flags in <code>teamfiltration</code>.</p>
+<ul>
+<li><code>--usernames</code>: A file containing the usernames</li>
+<li><code>--outpath</code>: This is the location where the teamfiltration database will live</li>
+<li><code>--config</code>: This is the configuration file to use</li>
+<li><code>--validate-login</code>: Use the more "noisy" flag in this way it will have 1 bad password attempt per email address</li>
+<li><code>--spray</code>: This is to perform a password spraying attack</li>
+<li><code>--sleep-min</code>: This will set the minimal sleep interval (1 minutes)</li>
+<li><code>--sleep-max</code>: This will set the maximum internal to wait (3 minutes)</li>
+<li><code>--jitter</code>: This is the amount to jitter between maximum and minimum time intervals</li>
+<li><code>--usernames</code>: This is the file containing usernames</li>
+<li><code>--passwords</code>: This is the file containing passwords</li>
+<li><code>--shuffle-users</code>: This command is to shuffle the usernames to test so that they are tested in different orders</li>
+<li><code>--shuffle-region</code>: This command is to shuffle between regions</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>Expected results</summary>
+<div class="highlight"><pre><span></span><code><span class="gp">sec588@slingshot ~/Coursefiles/workdir $ </span>/opt/teamfiltration/TeamFiltration --outpath /home/sec588/Coursefiles/workdir/teamfiltration --config TeamFiltrationConfig_SEC588.json --spray --validate-login --sleep-min <span class="m">1</span> --sleep-max <span class="m">2</span> --jitter <span class="m">1</span> --usernames /home/sec588/Coursefiles/workdir/usernames.txt --passwords /home/sec588/Coursefiles/workdir/passwords.txt --shuffle-users --shuffle-regions
+
+<span class="go">╓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╖</span>
+<span class="go">╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ╟╬╬╜╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╡                              │      ╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╡                              ││      ╙╬╬╜╘ └╙╜╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╡         ╓╥╥╬╬╬╬╬╬╥╥╖         ││       │        ╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╡     ╓╬╫╬╜╜┘      ╙╜╜╬╫╬┐     ││       ││       └╬╬╬╬</span>
+<span class="go">╬╬╬╬┤    ╬╬╜╙╩╬╖╓          ╙╬╬╬    ││       ││        ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤   ╬╜      ╙╬╫╖╖ ╓      ╙╬╖   ││      ├││        ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤  ╬╬     ╓╖   ╙╬╬╬╬╬╬╦    ╬╬  │┌    ╓╬┤││       ╓╬╬╬╬</span>
+<span class="go">╬╬╬╬┤ ╓╬┤     ╬╬╬   ╬╬╬╬╬╬╬╬╜╜╜╬╬╖ ╟╬╬╬╬╬╬╬╬╬╕      ┌╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤ ╬╬┤     ╙╩┘   ╙╬╬╬╬╬╩    ╟╬╬ ╙╜╜╜╜╜╜╜╜╜╬╬╖╖╖╦╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤ ╬╬┤                      ╟╬╬ ││         ╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤  ╬╬   ╦╖            ╗╖   ╬╬  ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤  └╬┐   ╙╬╖╖      ╓╬╬╜   ╓╬┘  ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤   └╬╖    ╙╩╨╬╬╬╩╨╜╜   ╒╬╬    ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤    ╙╬╬╬╖           ┌╖╫╬╜┘    ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤       ╙╩╬╬╬╥╥╥╥╥╥╫╬╬╜╜       ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤            ╙╙╜╜╜╛            ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ││         │    ╓╖╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ││         ╬╦╦╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ││     ╓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ╬╬╬╖╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">└╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╜</span>
+<span class="go">╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜</span>
+
+<span class="go">[♥] TeamFiltration V3.5.2 PUBLIC, created by @Flangvik at @TrustedSec</span>
+<span class="go">[+] Args parsed --outpath /home/sec588/Coursefiles/workdir/teamfiltration --config TeamFiltrationConfig_SEC588.json --spray --validate-login --sleep-min 1 --sleep-max 2 --jitter 1 --usernames /home/sec588/Coursefiles/workdir/usernames.txt --passwords /home/sec588/Coursefiles/workdir/passwords.txt --shuffle-users --shuffle-regions</span>
+<span class="go">[SPRAY] 7/10/2023 5:55:54 PM EST Sleeping between 0-1 minutes for each round</span>
+<span class="go">[FIREPROX] 7/10/2023 5:55:57 PM EST Created endpoint https://qfoh15k23f.execute-api.us-east-1.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:55:58 PM EST Created endpoint https://6sx8tyelbc.execute-api.us-east-2.amazonaws.com/fireprox/</span>
+<span class="go">[SPRAY] us-east-2    7/10/2023 5:55:59 PM EST Sprayed summer@CUSTOMDOMAIN.DOMAIN:SURPRISE1                    =&gt; INVALID</span>
+<span class="go">[SPRAY] us-east-2    7/10/2023 5:55:59 PM EST Sprayed beth@CUSTOMDOMAIN.DOMAIN:SURPRISE1                      =&gt; INVALID</span>
+<span class="go">[SPRAY] us-east-1    7/10/2023 5:55:59 PM EST Sprayed jerry@CUSTOMDOMAIN.DOMAIN:SURPRISE1                     =&gt; VALID</span>
+<span class="go">[SPRAY] us-east-1    7/10/2023 5:56:00 PM EST Sprayed rick@CUSTOMDOMAIN.DOMAIN:SURPRISE1                     =&gt; INVALID</span>
+<span class="go">[FIREPROX] 7/10/2023 5:56:03 PM EST Deleted endpoint https://qfoh15k23f.execute-api.us-east-1.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:56:12 PM EST Deleted endpoint https://6sx8tyelbc.execute-api.us-east-2.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:56:13 PM EST Created endpoint https://2srukgej58.execute-api.us-east-1.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:56:13 PM EST Created endpoint https://c24peto6z1.execute-api.us-east-2.amazonaws.com/fireprox/</span>
+<span class="go">[SPRAY] us-east-2    7/10/2023 5:56:14 PM EST Sprayed terry@CUSTOMDOMAIN.DOMAIN:SURPRISE2                     =&gt; INVALID</span>
+<span class="go">[SPRAY] us-east-2    7/10/2023 5:56:14 PM EST Sprayed jerry@CUSTOMDOMAIN.DOMAIN:SURPRISE2                     =&gt; INVALID</span>
+<span class="go">[SPRAY] us-east-2    7/10/2023 5:56:14 PM EST Sprayed rick@CUSTOMDOMAIN.DOMAIN:SURPRISE2                     =&gt; VALID</span>
+<span class="go">[SPRAY] us-east-1    7/10/2023 5:56:14 PM EST Sprayed summer@CUSTOMDOMAIN.DOMAIN:SURPRISE2                    =&gt; INVALID</span>
+<span class="go">[FIREPROX] 7/10/2023 5:56:50 PM EST Deleted endpoint https://2srukgej58.execute-api.us-east-1.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:56:50 PM EST Deleted endpoint https://c24peto6z1.execute-api.us-east-2.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:56:51 PM EST Created endpoint https://4zx14b0g2l.execute-api.us-east-1.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:56:52 PM EST Created endpoint https://3t0w65kfg8.execute-api.us-east-2.amazonaws.com/fireprox/</span>
+<span class="go">[SPRAY] us-east-1    7/10/2023 5:56:53 PM EST Sprayed jerry@CUSTOMDOMAIN.DOMAIN:SURPRISE3                    =&gt; INVALID</span>
+<span class="go">[SPRAY] us-east-2    7/10/2023 5:56:53 PM EST Sprayed terry@CUSTOMDOMAIN.DOMAIN:SURPRISE3                    =&gt; INVALID</span>
+<span class="go">[SPRAY] us-east-2    7/10/2023 5:56:53 PM EST Sprayed rick@CUSTOMDOMAIN.DOMAIN:SURPRISE3                    =&gt; INVALID</span>
+<span class="go">[SPRAY] us-east-1    7/10/2023 5:56:54 PM EST Sprayed summer@CUSTOMDOMAIN.DOMAIN:SURPRISE3                   =&gt; INVALID</span>
+<span class="go">[FIREPROX] 7/10/2023 5:57:05 PM EST Deleted endpoint https://4zx14b0g2l.execute-api.us-east-1.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:57:06 PM EST Deleted endpoint https://3t0w65kfg8.execute-api.us-east-2.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:57:06 PM EST Created endpoint https://9zjw7cg287.execute-api.us-east-1.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:57:07 PM EST Created endpoint https://ke9cpz8pb4.execute-api.us-east-2.amazonaws.com/fireprox/</span>
+<span class="go">[SPRAY] us-east-2    7/10/2023 5:57:08 PM EST Sprayed summer@CUSTOMDOMAIN.DOMAIN:SURPRISE4               =&gt; INVALID</span>
+<span class="go">[SPRAY] us-east-1    7/10/2023 5:57:08 PM EST Sprayed rick@CUSTOMDOMAIN.DOMAIN:SURPRISE4                =&gt; INVALID</span>
+<span class="go">[SPRAY] us-east-1    7/10/2023 5:57:08 PM EST Sprayed terry@CUSTOMDOMAIN.DOMAIN:SURPRISE4                =&gt; VALID</span>
+<span class="go">[SPRAY] us-east-1    7/10/2023 5:57:08 PM EST Sprayed jerry@CUSTOMDOMAIN.DOMAIN:SURPRISE4                =&gt; INVALID</span>
+<span class="go">[FIREPROX] 7/10/2023 5:57:12 PM EST Deleted endpoint https://9zjw7cg287.execute-api.us-east-1.amazonaws.com/fireprox/</span>
+<span class="go">[FIREPROX] 7/10/2023 5:57:46 PM EST Deleted endpoint https://ke9cpz8pb4.execute-api.us-east-2.amazonaws.com/fireprox/</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>In certain circumstances you may see the following error (or stack trace)</p>
+<div class="highlight"><pre><span></span><code><span class="go">Unhandled exception. Amazon.APIGateway.Model.TooManyRequestsException: Too Many Requests</span>
+<span class="go">---&gt; Amazon.Runtime.Internal.HttpErrorResponseException: Exception of type &#39;Amazon.Runtime.Internal.HttpErrorResponseException&#39; was thrown.</span>
+<span class="go">at Amazon.Runtime.HttpWebRequestMessage.GetResponseAsync(CancellationToken cancellationToken)</span>
+<span class="go">at Amazon.Runtime.Internal.HttpHandler`1.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.Unmarshaller.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">--- End of inner exception stack trace ---</span>
+<span class="go">at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionStream(IRequestContext requestContext, IWebResponseData httpErrorResponse, HttpErrorResponseException exception, Stream responseStream)</span>
+<span class="go">at Amazon.Runtime.Internal.HttpErrorResponseExceptionHandler.HandleExceptionAsync(IExecutionContext executionContext, HttpErrorResponseException exception)</span>
+<span class="go">at Amazon.Runtime.Internal.ExceptionHandler`1.HandleAsync(IExecutionContext executionContext, Exception exception)</span>
+<span class="go">at Amazon.Runtime.Internal.ErrorHandler.ProcessExceptionAsync(IExecutionContext executionContext, Exception exception)</span>
+<span class="go">at Amazon.Runtime.Internal.ErrorHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.Signer.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.EndpointDiscoveryHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.CredentialsRetriever.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.RetryHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.CallbackHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.ErrorCallbackHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at Amazon.Runtime.Internal.MetricsHandler.InvokeAsync[T](IExecutionContext executionContext)</span>
+<span class="go">at TeamFiltration.Handlers.AWSHandler.DeleteFireProxEndpoint(String fireProxId, String region)</span>
+<span class="go">at TeamFiltration.Modules.Spray.SprayAsync(String[] args)</span>
+<span class="go">at TeamFiltration.Program.Main(String[] args)</span>
+<span class="go">at TeamFiltration.Program.&lt;Main&gt;(String[] args)</span>
+<span class="go">[1]    26392 IOT instruction (core dumped)  /opt/teamfiltration/TeamFiltration --outpath  --config  --spray  --sleep-min </span>
+</code></pre></div>
+<p>If this occurs you are free to rerun the application, the stacktrace is solely due to AWS suppressing the number of API gateway requests and <code>teamfiltration</code> unable to handle the error.</p>
+</div>
+</details>
+</div>
+</li>
+<li>
+<p>How can we review the results? We can use the <code>--database</code> flags.</p>
+<div class="admonition cmd">
+<p class="admonition-title">Command lines</p>
+<div class="highlight"><pre><span></span><code>/opt/teamfiltration/TeamFiltration --outpath /home/sec588/Coursefiles/workdir/teamfiltration --config /home/sec588/Coursefiles/workdir/TeamFiltrationConfig_SEC588.json --database
+</code></pre></div>
+</div>
+<div class="admonition cmd">
+<p class="admonition-title">Command lines</p>
+<div class="highlight"><pre><span></span><code>show creds
+</code></pre></div>
+</div>
+<div class="admonition cmd">
+<p class="admonition-title">Command lines</p>
+<div class="highlight"><pre><span></span><code><span class="nb">exit</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>This tool still is a work in progress and doesn't necessarily finish correctly. Please make special note that if you get 3 out of 5 or 2 out of 5 credentials this is fine. We can still work on labs even with a few passwords. If you feel that you <strong>have</strong> to get the exact number then you can attempt to delete the database and try again. Do this after class</p>
+</div>
+<details class="abstract">
+<summary>Expected results</summary>
+<div class="highlight"><pre><span></span><code><span class="gp">sec588@slingshot ~/Coursefiles/workdir $ </span>/opt/teamfiltration/TeamFiltration --outpath /home/sec588/Coursefiles/workdir/teamfiltration --config /home/sec588/Coursefiles/workdir/TeamFiltrationConfig_SEC588.json --database
+
+<span class="go">╓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╖</span>
+<span class="go">╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ╟╬╬╜╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╡                              │      ╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╡                              ││      ╙╬╬╜╘ └╙╜╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╡         ╓╥╥╬╬╬╬╬╬╥╥╖         ││       │        ╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╡     ╓╬╫╬╜╜┘      ╙╜╜╬╫╬┐     ││       ││       └╬╬╬╬</span>
+<span class="go">╬╬╬╬┤    ╬╬╜╙╩╬╖╓          ╙╬╬╬    ││       ││        ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤   ╬╜      ╙╬╫╖╖ ╓      ╙╬╖   ││      ├││        ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤  ╬╬     ╓╖   ╙╬╬╬╬╬╬╦    ╬╬  │┌    ╓╬┤││       ╓╬╬╬╬</span>
+<span class="go">╬╬╬╬┤ ╓╬┤     ╬╬╬   ╬╬╬╬╬╬╬╬╜╜╜╬╬╖ ╟╬╬╬╬╬╬╬╬╬╕      ┌╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤ ╬╬┤     ╙╩┘   ╙╬╬╬╬╬╩    ╟╬╬ ╙╜╜╜╜╜╜╜╜╜╬╬╖╖╖╦╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤ ╬╬┤                      ╟╬╬ ││         ╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤  ╬╬   ╦╖            ╗╖   ╬╬  ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤  └╬┐   ╙╬╖╖      ╓╬╬╜   ╓╬┘  ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤   └╬╖    ╙╩╨╬╬╬╩╨╜╜   ╒╬╬    ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤    ╙╬╬╬╖           ┌╖╫╬╜┘    ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤       ╙╩╬╬╬╥╥╥╥╥╥╫╬╬╜╜       ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤            ╙╙╜╜╜╛            ││         │       ╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ││         │    ╓╖╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ││         ╬╦╦╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ││     ╓╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬┤                              ╬╬╬╖╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬</span>
+<span class="go">└╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╜</span>
+<span class="go">╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜╜</span>
+
+<span class="go">[♥] TeamFiltration V3.5.2 PUBLIC, created by @Flangvik at @TrustedSec</span>
+<span class="go">[+] Args parsed --outpath /home/sec588/Coursefiles/workdir/teamfiltration --config /home/sec588/Coursefiles/workdir/TeamFiltrationConfig_SEC588.json --database</span>
+<span class="go">[+] Attempting to load database file /home/sec588/Coursefiles/workdir/teamfiltration/TeamFiltration.db</span>
+<span class="go">[+] Available commands:</span>
+
+<span class="go">    show &lt;emails|creds|attempts|summary|fireprox&gt;</span>
+<span class="go">    export &lt;emails|creds|attempts|summary&gt; &lt;csv|json&gt; &lt;path&gt;</span>
+<span class="go">    delete &lt;*|fireprox-id&gt; &lt;fireprox-region&gt;</span>
+<span class="go">    exit</span>
+
+<span class="go">[?] CMD #&gt; show creds</span>
+<span class="go">+----+----------------------+--------------+-------+-------------------+-------------------+---------------------+</span>
+<span class="go">| Id | DateTime             | Disqualified | Valid | ConditionalAccess | Username          | Password            |</span>
+<span class="go">+----+----------------------+--------------+-------+-------------------+-------------------+---------------------+</span>
+<span class="go">| 18 | 7/10/2023 9:55:59 PM | False        | True  | True              | jerry@CUSTOMDOMAIN.DOMAIN  | SURPRISE1      |</span>
+<span class="go">+----+----------------------+--------------+-------+-------------------+-------------------+---------------------+</span>
+<span class="go">| 23 | 7/10/2023 9:56:14 PM | False        | True  | True              | rick@CUSTOMDOMAIN.DOMAIN  | SURPRISE2      |</span>
+<span class="go">+----+----------------------+--------------+-------+-------------------+-------------------+---------------------+</span>
+<span class="go">| 30 | 7/10/2023 9:56:55 PM | False        | True  | True              | beth@CUSTOMDOMAIN.DOMAIN   | SURPRISE3     |</span>
+<span class="go">+----+----------------------+--------------+-------+-------------------+-------------------+---------------------+</span>
+<span class="go">| 39 | 7/10/2023 9:57:50 PM | False        | True  | False             | summer@CUSTOMDOMAIN.DOMAIN | SURPRISE5       |</span>
+<span class="go">+----+----------------------+--------------+-------+-------------------+-------------------+---------------------+</span>
+<span class="go">exit</span>
+</code></pre></div>
+</details>
+</div>
+</li>
+</ol>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../01-identities/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Identities Lab 1" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Identities Lab 1
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../03-identities/" class="md-footer__link md-footer__link--next" aria-label="Next: Identities Lab 3" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Identities Lab 3
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ©2023 SANS Institute
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": "N/A"}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+        <script src="../../../js/jquery.min.js"></script>
+      
+        <script src="../../../js/jquery.fancybox.min.js"></script>
+      
+        <script src="../../../js/workbook.js"></script>
+      
+        <script src="../../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
