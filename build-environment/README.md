@@ -1,8 +1,7 @@
 # README
 
-1. You need to have an SSH public key in the system.
-    `aws ec2 import-key-pair --key-name moses --public-key-material fileb://$HOME/.ssh/id_rsa.pub --profile=moses --region=us-east-1`
+This is for the build environment to replicate what aviata.cloud has on their backend.
 
-2.  Run the build.sh file.
-
-$  aws ec2 modify-snapshot-attribute --snapshot-id $(terraform output -raw ebs_snap_id) --attribute createVolumePermission --operation-type add --group-names all
+1. Take a look at the `terraform.tfvars.example` file, this file shows you the variables you can specify for the run.
+2. Rename or copy the file to `terraform.tfvars`
+3. Run the build.sh file in Linux or Mac. In windows run: `terraform output -raw runcmd`, and then copy that in the command prompt to execute the final part of the run.

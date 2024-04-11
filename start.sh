@@ -11,5 +11,3 @@ cd tools
 
 docker build -t sec588-tools .
 docker compose build
-
-echo "Open your Webbrowser and point it to: http://localhost:8000"

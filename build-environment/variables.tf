@@ -11,6 +11,6 @@ variable "profile" {
 
 variable "bucket" {
   type        = string
-  description = "Please enter your AWS Region, if you are not sure use us-east-1"
+  description = "This is the default bucket and it already exists in the cloud"
   default     = "aviata-tlpred"
 }
