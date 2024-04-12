@@ -40,26 +40,34 @@ resource "aws_s3_object" "staging_file" {
 # Bucket: dev site
 #######################################################################################
 resource "aws_s3_bucket" "dev_site" {
-  bucket = "dev.aviata.com"
+  bucket = "dev.${var.domain}"
+
 }
 
-#resource "aws_s3_bucket_policy" "dev_site" {
-#  bucket = aws_s3_bucket.dev_site.id
-#  policy = jsonencode(
-#    {
-#      "Version" : "2012-10-17",
-#      "Statement" : [
-#        {
-#          "Sid" : "PublicReadGetObject",
-#          "Effect" : "Allow",
-#          "Principal" : "*",
-#          "Action" : "s3:GetObject",
-#          "Resource" : "arn:aws:s3:::${aws_s3_bucket.dev_site.id}/*"
-#        }
-#      ]
-#    }
-#  )
-#}
+resource "aws_s3_bucket_public_access_block" "dev_site" {
+  bucket = aws_s3_bucket.dev_site.id
+
+  block_public_acls   = false
+  block_public_policy = false
+}
+
+resource "aws_s3_bucket_policy" "dev_site" {
+  bucket = aws_s3_bucket.dev_site.id
+  policy = jsonencode(
+    {
+      "Version" : "2012-10-17",
+      "Statement" : [
+        {
+          "Sid" : "PublicReadGetObject",
+          "Effect" : "Allow",
+          "Principal" : "*",
+          "Action" : "s3:GetObject",
+          "Resource" : "arn:aws:s3:::${aws_s3_bucket.dev_site.id}/*"
+        }
+      ]
+    }
+  )
+}
 
 resource "aws_s3_object" "dev_site" {
   for_each     = fileset(path.module, "files/content/**/*.{html,css,js}")

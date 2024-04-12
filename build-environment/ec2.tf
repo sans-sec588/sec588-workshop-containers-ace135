@@ -38,7 +38,7 @@ resource "aws_instance" "data_ingestion" {
   user_data = data.local_file.cloud_init_ingest_yaml.content
 
   subnet_id = aws_subnet.public.id
-  
+
   tags = {
     Name = "Data Ingestion Server"
   }

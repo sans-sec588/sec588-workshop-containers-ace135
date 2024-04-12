@@ -14,3 +14,9 @@ variable "bucket" {
   description = "This is the default bucket and it already exists in the cloud"
   default     = "aviata-tlpred"
 }
+
+variable "domain" {
+  type        = string
+  description = "This is the domain of the target environment, must exist in Route53."
+  default     = "aviata.cloud"
+}

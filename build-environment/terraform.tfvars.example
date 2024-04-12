@@ -1,3 +1,4 @@
 region  = "us-east-2"
 profile = "example"
 bucket  = "example-unique-bucket-name"
+domain  = "notaviata.cloud"
