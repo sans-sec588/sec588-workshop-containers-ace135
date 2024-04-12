@@ -72,7 +72,7 @@ resource "aws_s3_bucket_policy" "dev_site" {
 resource "aws_s3_object" "dev_site" {
   for_each     = fileset(path.module, "files/content/**/*.{html,css,js}")
   bucket       = aws_s3_bucket.dev_site.id
-  key          = replace(each.value, "files/^content//", "")
+  key          = replace(each.value, "^files/content//", "")
   source       = each.value
   content_type = lookup(local.content_types, regex("\\.[^.]+$", each.value), null)
   etag         = filemd5(each.value)
