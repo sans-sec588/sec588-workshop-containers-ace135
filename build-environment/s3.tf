@@ -43,23 +43,23 @@ resource "aws_s3_bucket" "dev_site" {
   bucket = "dev.aviata.com"
 }
 
-resource "aws_s3_bucket_policy" "dev_site" {
-  bucket = aws_s3_bucket.dev_site.id
-  policy = jsonencode(
-    {
-      "Version" : "2012-10-17",
-      "Statement" : [
-        {
-          "Sid" : "PublicReadGetObject",
-          "Effect" : "Allow",
-          "Principal" : "*",
-          "Action" : "s3:GetObject",
-          "Resource" : "arn:aws:s3:::${aws_s3_bucket.dev_site.id}/*"
-        }
-      ]
-    }
-  )
-}
+#resource "aws_s3_bucket_policy" "dev_site" {
+#  bucket = aws_s3_bucket.dev_site.id
+#  policy = jsonencode(
+#    {
+#      "Version" : "2012-10-17",
+#      "Statement" : [
+#        {
+#          "Sid" : "PublicReadGetObject",
+#          "Effect" : "Allow",
+#          "Principal" : "*",
+#          "Action" : "s3:GetObject",
+#          "Resource" : "arn:aws:s3:::${aws_s3_bucket.dev_site.id}/*"
+#        }
+#      ]
+#    }
+#  )
+#}
 
 resource "aws_s3_object" "dev_site" {
   for_each     = fileset(path.module, "files/content/**/*.{html,css,js}")
