@@ -3,5 +3,5 @@
 .terraform.d
 *.tfstate.backup
 *.run
-.terraform.lock.hcl
+.terraform.*
 terraform.tfvars
