@@ -44,7 +44,14 @@ resource "aws_instance" "data_ingestion" {
   }
 }
 
+resource time_sleep "wait_for_cloud_init" {
+  create_duration = "180s"
+  
+  depends_on = [aws_instance.data_ingestion]
+}
+
 resource "aws_ebs_snapshot" "data_ingest_snapshot" {
   volume_id = aws_instance.data_ingestion.root_block_device[0].volume_id
 
+  depends_on = [time_sleep.wait_for_cloud_init]
 }

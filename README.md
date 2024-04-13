@@ -2,14 +2,15 @@
 
 The instructions for this will be in the workbook. 
 
+## Unnoffical Setup
+
 For Linux and Mac run:
 
-./build.sh
+./start.sh
 
 For Windows run:
 
 ```
 cd tools
-docker build -t sec588-tools .
-docker compose build
+docker build -t sec588-workshops-containers-tool .
 ```

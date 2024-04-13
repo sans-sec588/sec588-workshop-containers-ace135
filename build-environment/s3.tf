@@ -44,13 +44,6 @@ resource "aws_s3_bucket" "dev_site" {
 
 }
 
-resource "aws_s3_bucket_public_access_block" "dev_site" {
-  bucket = aws_s3_bucket.dev_site.id
-
-  block_public_acls   = false
-  block_public_policy = false
-}
-
 resource "aws_s3_bucket_policy" "dev_site" {
   bucket = aws_s3_bucket.dev_site.id
   policy = jsonencode(
@@ -84,4 +77,30 @@ resource "aws_s3_bucket_website_configuration" "dev_site" {
   index_document {
     suffix = "index.html"
   }
+}
+
+resource "aws_s3_bucket_ownership_controls" "dev_site" {
+  bucket = aws_s3_bucket.dev_site.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "dev_site" {
+  bucket = aws_s3_bucket.dev_site.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_acl" "dev_site" {
+  bucket = aws_s3_bucket.dev_site.id
+  acl    = "public-read"
+
+  depends_on = [
+    aws_s3_bucket_ownership_controls.dev_site,
+    aws_s3_bucket_public_access_block.dev_site,
+  ]
 }

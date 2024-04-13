@@ -2,7 +2,7 @@ output "final_text" {
   value = <<EOF
 -------------------------------------------------------------------------------
 Role ARN for the first portion of the lab:        ${aws_iam_role.s3_searcher.arn}
-Command to run for the first portion of the lab:  s3-account-search ${aws_iam_role.s3_searcher.arn} bucket-name-here
+Command to run for the first portion of the lab:  s3-account-search ${aws_iam_role.s3_searcher.arn} dev.aviata.cloud
 Command to run for EC2 Build:                     
 
 aws ec2 run-instances --image-id $AMI \

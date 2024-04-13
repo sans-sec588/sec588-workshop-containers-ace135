@@ -8,6 +8,4 @@ Remember: You will need an X86 Version of Docker to use this workshop series.
 "
 
 cd tools
-
-docker build -t sec588-tools .
-docker compose build
+docker build -t sec588-workshops-containers-tool .
