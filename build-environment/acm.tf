@@ -1,7 +1,8 @@
-# We only need this to populate SubFinder, Subfinder is a required component of our lab, this is for Ceritificate Transparency Only.
-
+#######################################################################################
+# This is for crt.sh to have a certificate to point students to (dev.${var.domain})
+#######################################################################################
 resource "aws_acm_certificate" "dev" {
-  domain_name       = "dev.${var.domain}"
+  domain_name       = "dev.${var.domain}" # This is for subfinder
   validation_method = "DNS"
 
   lifecycle {
@@ -11,5 +12,5 @@ resource "aws_acm_certificate" "dev" {
 
 resource "aws_acm_certificate_validation" "dev" {
   certificate_arn         = aws_acm_certificate.dev.arn
-  validation_record_fqdns = [for record in aws_route53_record.dvo : record.fqdn]
+  validation_record_fqdns = [for record in aws_route53_record.dvo : record.fqdn] # Look at R53 for this information
 }

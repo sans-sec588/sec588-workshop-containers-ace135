@@ -1,4 +1,4 @@
 #!/bin/bash
 
-terraform apply
+terraform apply -auto-approve
 $(terraform output -raw runcmd)
